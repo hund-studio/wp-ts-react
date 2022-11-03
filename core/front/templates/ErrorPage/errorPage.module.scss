@@ -1,0 +1,20 @@
+.container {
+	background-color: #1f1f1f;
+	color: #f1f1f1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+
+	.title {
+		font-size: 48px;
+	}
+
+	.content {
+		font-size: 16px;
+	}
+}

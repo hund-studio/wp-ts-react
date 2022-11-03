@@ -1,0 +1,6 @@
+{
+	"namespaces": {
+		"wp": "wp-json",
+		"wpreact": "wpreact/v1"
+	}
+}

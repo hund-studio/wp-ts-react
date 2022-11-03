@@ -1,0 +1,51 @@
+{
+	"name": "wp-ts-react",
+	"version": "1.0.0",
+	"private": true,
+	"author": "hund snc",
+	"description": "Wordpress /w React + Typescript starter",
+	"keywords": [],
+	"license": "ISC",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"watch": "rimraf bundle && cross-env --action=watch --target=local webpack --watch --mode=development",
+		"serve": "cross-env --action=serve --target=staging webpack serve --mode=development",
+		"build": "rimraf bundle && cross-env --action=build --target=production webpack --mode=production"
+	},
+	"devDependencies": {
+		"@prettier/plugin-php": "^0.18.4",
+		"@types/node": "^18.11.7",
+		"@types/react": "^18.0.24",
+		"@types/react-dom": "^18.0.8",
+		"@types/react-helmet": "^6.1.5",
+		"@types/string-template": "^1.0.2",
+		"@types/webpack": "^5.28.0",
+		"@types/webpack-dev-server": "^4.7.2",
+		"@types/webpack-watch-files-plugin": "^1.1.0",
+		"cross-env": "^7.0.3",
+		"css-loader": "^6.7.1",
+		"filemanager-webpack-plugin": "^7.0.0",
+		"html-webpack-plugin": "^5.5.0",
+		"mini-css-extract-plugin": "^2.6.1",
+		"rimraf": "^3.0.2",
+		"sass": "^1.55.0",
+		"sass-loader": "^13.1.0",
+		"ts-loader": "^9.4.1",
+		"ts-node": "^10.9.1",
+		"tsconfig-paths-webpack-plugin": "^4.0.0",
+		"typescript": "^4.8.4",
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.10.0",
+		"webpack-dev-server": "^4.11.1",
+		"webpack-watch-files-plugin": "^1.2.1"
+	},
+	"dependencies": {
+		"axios": "^1.1.3",
+		"html-react-parser": "^3.0.4",
+		"react": "^18.2.0",
+		"react-helmet": "^6.1.0",
+		"react-router-dom": "^6.4.2",
+		"string-template": "^1.0.0",
+		"swr": "^1.3.0"
+	}
+}

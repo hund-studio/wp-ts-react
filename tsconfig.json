@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		// transpilation settings
+		"jsx": "react-jsx",
+		"lib": ["ESNext", "DOM"],
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"target": "ESNext",
+
+		// dev tools
+		"sourceMap": true,
+
+		// features configuration
+		"esModuleInterop": true,
+		"noImplicitAny": true,
+		"resolveJsonModule": true,
+		"strict": true,
+
+		// filesystem
+		"outDir": "./public/",
+		"baseUrl": "./",
+		"paths": {
+			"@config/*": ["./config/*"],
+			"@views/*": ["./views/*"],
+			"@core/page": ["./core/front/page"],
+			"@core/hooks": ["./core/front/hooks/data"]
+		}
+	},
+	// enable top level await on webpack
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS"
+		}
+	}
+}

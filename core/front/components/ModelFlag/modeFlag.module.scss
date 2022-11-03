@@ -1,0 +1,17 @@
+.container {
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 10px 15px;
+	padding-top: 0;
+	opacity: 0.8;
+	z-index: 99999;
+
+	.inner {
+		padding: 5px 7.5px;
+		background: #fa3d3d;
+		color: #fff;
+		font-size: 12px;
+		border-radius: 0 0 5px 5px;
+	}
+}
