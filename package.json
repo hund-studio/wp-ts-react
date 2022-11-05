@@ -1,6 +1,6 @@
 {
 	"name": "wp-ts-react",
-	"version": "1.0.0",
+	"version": "0.1.0-rc",
 	"private": true,
 	"author": "hund snc",
 	"description": "Wordpress /w React + Typescript starter",
