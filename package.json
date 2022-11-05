@@ -5,7 +5,7 @@
 	"author": "hund snc",
 	"description": "Wordpress /w React + Typescript starter",
 	"keywords": [],
-	"license": "ISC",
+	"license": "MIT",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"watch": "rimraf bundle && cross-env --action=watch --target=local webpack --watch --mode=development",
