@@ -2,11 +2,11 @@
 
 **wp-ts-react** is a WordPress theme preconfigured with a Typescript + React system which allows you to handle a minimal WordPress configuration and a React frontend development workflow in one repository.
 
-| Index                                                  |
-| :----------------------------------------------------- |
-| [Statement](#statement)                                |
-| [Getting Started](#getting-started)                    |
-| [Wordpress Configuration](/WORDPRESS_CONFIGURATION.md) |
+| Index                                                   |
+| :------------------------------------------------------ |
+| [Statement](#statement)                                 |
+| [Getting Started](#getting-started)                     |
+| [Wordpress Configuration](./WORDPRESS_CONFIGURATION.md) |
 
 ## Statement
 
@@ -78,7 +78,7 @@ Use `npm run build` to build the production theme inside the `/build` folder, re
 
 #### Configuration
 
-Detailed documentation about WordPress configuration can be found [in this section](/WORDPRESS_CONFIGURATION.md).
+Detailed documentation about WordPress configuration can be found [in this section](./WORDPRESS_CONFIGURATION.md).
 
 To start there is one last thing to do: configure your WordPress instances. You can find all the basic configurations inside the `/config` folder inside your project root:
 
