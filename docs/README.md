@@ -24,9 +24,11 @@
 
 ### Setup
 
-#### Method 1: Using GitHub templates
+#### Method 1 [Suggested]: Using GitHub templates
 
 You can easily clone this starter as a new repository in your GitHub account by using the green button on the top right of the [GitHub Repository](https://github.com/hund-studio/wp-ts-react).
+
+[![use-template-button](./assets/use-template-button.svg)](https://github.com/hund-studio/wp-ts-react/generate)
 
 #### Method 2: Dowload a zip
 
