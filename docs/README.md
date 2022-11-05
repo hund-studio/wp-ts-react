@@ -1,6 +1,7 @@
 # 📦 wp-ts-react
 
 ![license](https://img.shields.io/github/license/hund-studio/wp-ts-react)
+![version](https://img.shields.io/github/package-json/v/hund-studio/wp-ts-react)
 
 **wp-ts-react** is a WordPress theme preconfigured with a Typescript + React system which allows you to handle a minimal WordPress configuration and a React frontend development workflow in one repository.
 
