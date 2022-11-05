@@ -15,13 +15,13 @@
 
 ## Statement
 
-🔪 Have you ever thought WordPress development is a hell of PHP templating, messy API, and does not fit your development workflow?
+🔪 **Have you ever thought WordPress development is a hell of PHP templating, messy API, and does not fit your development workflow?**
 
-🔪 Are you willing to work with React but proper template integration with WordPress is a real pain?
+🔪 **Are you willing to work with React but proper template integration with WordPress is a real pain?**
 
-🔪 Have you ever noticed that SEO/Socials previews are a pain when dealing with Create React App frontend and headless WordPress?
+🔪 **Have you ever noticed that SEO/Socials previews are a pain when dealing with Create React App frontend and headless WordPress?**
 
-🔪 Do you need a ready-to-go tool for small websites (such as one page and small portfolios) which needs to run on an old scrappy server of some super cheap hosting?
+🔪 **Do you need a ready-to-go tool for small websites (such as one page and small portfolios) which needs to run on an old scrappy server of some super cheap hosting?**
 
 👌 Well, this repository is something you might be interested in.
 
