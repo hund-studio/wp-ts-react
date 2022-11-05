@@ -4,9 +4,30 @@ namespace WPReact\Wordpress\Query\PostType;
 
 use WPReact\Helpers;
 
-function findMany(string $label)
+function findMany(string $label, ?array $whereTaxonomy = null, ?string $whereTaxonomyRelation = 'AND')
 {
-    $args = ['post_type' => $label];
+    if ($whereTaxonomy)
+        $taxonomyQuery = [
+            'tax_query' => [
+                'relation' => $whereTaxonomyRelation,
+                array_map(
+                    fn ($slug, $terms) =>
+                    [
+                        "taxonomy" => $slug,
+                        "field" => 'slug',
+                        "terms" => $terms
+                    ],
+                    array_keys($whereTaxonomy),
+                    $whereTaxonomy
+                )
+            ]
+        ];
+
+    $args = array_merge(
+        ['post_type' => $label,],
+        $taxonomyQuery ?: []
+    );
+
     $query = new \WP_Query($args);
 
     if (!$query->have_posts())
@@ -20,7 +41,7 @@ function findMany(string $label)
             $post->acf = get_fields($post->ID);
 
         return $post;
-    }, $posts);
+    }, $posts); // todo: this should be something with decoration pattern o similar
 
     return  $posts;
 }

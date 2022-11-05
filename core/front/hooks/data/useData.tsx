@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { context as dataContext } from "./../../context/data";
 
-const useData = () => useContext(dataContext).value;
+function useData() {
+	const { value } = useContext(dataContext);
+
+	return { data: value };
+}
 
 export { useData };

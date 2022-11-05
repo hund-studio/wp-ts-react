@@ -1,14 +1,14 @@
 import { MenuOnBottom } from "../layouts/menuOnBottom/MenuOnBottom";
 
-const ProjectArchive: Page = ({ data }: any) => {
+const ProjectSingle: Page = ({ data }: any) => {
 	return (
 		<main>
-			<h1>Archive Project page</h1>
+			<h1>Single Project page</h1>
 			<input type={"text"} value={data?.acf?.body} disabled />
 		</main>
 	);
 };
 
-ProjectArchive.layout = MenuOnBottom;
+ProjectSingle.layout = MenuOnBottom;
 
-export default ProjectArchive;
+export default ProjectSingle;

@@ -13,7 +13,7 @@ final class Config extends Singleton
 {
     public static function init()
     {
-        functionsFromPath(get_template_directory() . CORE_DIR . '/Wordpress/Query');
+        functionsFromPath(ThemeConfig::get('dir') . CORE_DIR . '/Wordpress/Query');
 
         $actionsPath = ThemeConfig::get('dir') . CORE_DIR . '/Wordpress/Action';
 
@@ -22,6 +22,10 @@ final class Config extends Singleton
         require_once "$actionsPath/enableTitleTag.php";
         require_once "$actionsPath/addPostsTemplatesLabel.php";
         require_once "$actionsPath/addThemeScripts.php";
+        require_once "$actionsPath/removeGutembergBlocksStyle.php";
+        require_once "$actionsPath/removeWooCommerceBlocksStyle.php";
+        require_once "$actionsPath/removeGeneralStyles.php";
+        require_once "$actionsPath/disableWordpressEmoji.php";
 
         if (WP_DEBUG) {
             require_once "$actionsPath/disableCorsSecurityChecks.php";

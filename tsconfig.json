@@ -22,6 +22,7 @@
 		"paths": {
 			"@config/*": ["./config/*"],
 			"@views/*": ["./views/*"],
+			"@core/Link": ["./core/front/components/Link"],
 			"@core/page": ["./core/front/page"],
 			"@core/hooks": ["./core/front/hooks/data"]
 		}

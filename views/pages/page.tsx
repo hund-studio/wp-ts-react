@@ -1,3 +1,5 @@
+import { MenuOnBottom } from "@views/layouts/menuOnBottom/MenuOnBottom";
+
 const Page: Page = ({ data }: any) => {
 	return (
 		<main>
@@ -6,5 +8,7 @@ const Page: Page = ({ data }: any) => {
 		</main>
 	);
 };
+
+Page.layout = MenuOnBottom;
 
 export default Page;

@@ -4,8 +4,11 @@ namespace WPReact\Theme;
 
 use WPReact\Abstract\SingletonWithOptions;
 use WPReact\Factory\Loader;
+use WPReact\Helpers;
 use WPReact\Php\Collection;
 use WPReact\Wordpress\Config as WordpressConfig;
+
+use function WPReact\Autoloader\functionsFromPath;
 
 use const WPReact\CONFIG_DIR;
 use const WPReact\CORE_DIR;
@@ -24,7 +27,7 @@ final class Config extends SingletonWithOptions
         'customTemplatesPath'   => 'config/custom-templates',
         'menusPath'             => 'config/menus',
         'postTypesPath'         => 'config/post-types',
-        'taxonomyTypesPath'     => 'config/taxonomy-types',
+        'taxonomiesPath'        => 'config/taxonomies',
         'restNamespace'         => null
     ];
 
@@ -59,6 +62,14 @@ final class Config extends SingletonWithOptions
             'restNamespace' => $apiConfig['namespaces']['wpreact']
         ]);
 
+        $taxonomyQueryPath = Helpers::makeFullUrl(
+            Config::get('dir'),
+            CORE_DIR,
+            '/Factory/Taxonomy/Query'
+        );
+
+        functionsFromPath($taxonomyQueryPath);
+
         Config::$loaders = new Collection(Loader::class);
 
         WordpressConfig::init();
@@ -71,6 +82,7 @@ final class Config extends SingletonWithOptions
         require_once "$actionsPath/loadCustomApi.php";
         require_once "$actionsPath/loadMenu.php";
         require_once "$actionsPath/loadAcfOptionsPages.php";
+        require_once "$actionsPath/loadTaxonomies.php";
 
         // Register required theme api
         require_once "$actionsPath/registerDefaultThemeApi.php";

@@ -1,5 +1,5 @@
+import { Link } from "@core/Link";
 import { MenuOnBottom } from "@views/layouts/menuOnBottom/MenuOnBottom";
-import { Link } from "react-router-dom";
 
 const Index: Page = ({ data }: any) => {
 	return (

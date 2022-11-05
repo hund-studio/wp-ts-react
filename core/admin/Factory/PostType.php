@@ -77,20 +77,33 @@ final class PostType extends Entity implements Loadable
             register($this->slug, $this->args, Config::getNamepace());
         }
 
-        add_action('registered_post_type', function ($postType) {
-            if ($postType != $this->slug)
-                return;
-
-            $this->WP_postType = get_post_type_object($this->slug);
+        add_action("registered_post_type_$this->slug", function ($postType) {
+            $this->WP_postType = get_post_type_object($postType);
 
             $this->setArchivePath();
 
             if ($this->archivePath)
                 new ApiRoute(
                     'GET',
-                    Helpers::makeFullUrl($this->archivePath),
-                    function () {
-                        $posts = $this->all();
+                    Helpers::makeFullUrl("post-type", $this->archivePath),
+                    function (\WP_REST_Request $request) {
+                        $queryParameters = $request->get_query_params();
+                        $queryParametersKeys = array_keys($request->get_query_params());
+
+                        $postTypeTaxonomies = get_object_taxonomies($this->slug);
+                        $queriedTaxonomiesKeys = array_intersect($postTypeTaxonomies, $queryParametersKeys);
+                        $queriedTaxonomiesValues = array_filter($queryParameters, function ($queryParametersKey) use ($queriedTaxonomiesKeys) {
+                            return in_array($queryParametersKey, $queriedTaxonomiesKeys);
+                        }, ARRAY_FILTER_USE_KEY);
+
+                        $queriedRelationType = $request->get_param('relation');
+
+                        $posts = findMany(
+                            $this->slug,
+                            $queriedTaxonomiesValues,
+                            $queriedRelationType
+                        );
+
                         return $posts;
                     }
                 );
@@ -99,7 +112,7 @@ final class PostType extends Entity implements Loadable
 
             new ApiRoute(
                 'GET',
-                Helpers::makeFullUrl("$this->singlePath/(?P<slug>[a-zA-Z0-9-]+)"),
+                Helpers::makeFullUrl("post-type", $this->singlePath, "(?P<slug>[a-zA-Z0-9-]+)"),
                 function (\WP_REST_Request $request) {
                     $post = $this->single($request->get_param('slug'));
                     if (!$post)
@@ -123,9 +136,10 @@ final class PostType extends Entity implements Loadable
 
         $singlePostTypeApiPath = [
             "url" => Helpers::makeFullUrl($isPage
-                ? "/:slug"
+                ? ":slug"
                 : "$this->singlePath/:slug"),
             "api" => Helpers::makeFullUrl(
+                "post-type",
                 $this->singlePath,
                 "{slug}"
             )
@@ -141,7 +155,7 @@ final class PostType extends Entity implements Loadable
         if ($this->archivePath) {
             $archivePostTypeApiPath = [
                 "url" => Helpers::makeFullUrl($this->archivePath),
-                "api" => Helpers::makeFullUrl($this->archivePath)
+                "api" => Helpers::makeFullUrl("post-type", $this->archivePath)
             ];
 
             $pattern['archive'] = [
@@ -149,10 +163,7 @@ final class PostType extends Entity implements Loadable
             ];
         }
 
-        return array_filter(array_merge(
-            $pattern['single'],
-            $pattern['archive']
-        ));
+        return $pattern;
     }
 
     public function all()

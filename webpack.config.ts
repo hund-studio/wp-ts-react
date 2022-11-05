@@ -161,6 +161,7 @@ const config = async (
 							loader: "css-loader",
 							options: {
 								modules: {
+									auto: true,
 									localIdentName: "[name]__[local]___[hash:base64:5]",
 								},
 							},

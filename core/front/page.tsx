@@ -10,61 +10,81 @@ import appConfig from "@config/app.json";
 
 // todo: check if getServerDataWorks
 
+const createRouteFromDefinition = async (
+	routeDefinition: WPReactRouteDefinition
+) => {
+	const [fileName, path, endpoint] = routeDefinition;
+
+	const splittedFileName = fileName.split(":");
+	const validTemplateNames = splittedFileName
+		.map((name, index) => {
+			const partialName = splittedFileName.slice(0, index + 1).join(":");
+			return partialName;
+		})
+		.reverse();
+
+	for (let index = 0; index < validTemplateNames.length; index++) {
+		try {
+			const { default: page } = await import(
+				`@views/pages/${validTemplateNames[index]}`
+			);
+
+			return (
+				<Route
+					key={path}
+					path={path}
+					element={<View endpoint={endpoint} page={page} />}
+				/>
+			);
+		} catch (e) {
+			continue;
+		}
+	}
+
+	console.log(
+		createErrorString({
+			path: "💢: something went wrong in 'core > front > pages.tsx'",
+			message: `😢: failed to import ${fileName}.tsx file`,
+		})
+	);
+
+	return null;
+};
+
+const recursivelyLoadRoutesTree = async (
+	templateName: string,
+	routesTree: WPReactTemplateTree
+): Promise<ReactNode> =>
+	await Promise.all(
+		Object.keys(routesTree).map(async (key) => {
+			const routesCollection = routesTree[key];
+
+			if (typeof routesCollection === "string") {
+				const slug = templateName === "frontpage" ? "index" : templateName;
+
+				return await createRouteFromDefinition([slug, key, routesCollection]);
+			} else {
+				return await recursivelyLoadRoutesTree(
+					`${templateName}:${key}`,
+					routesCollection
+				);
+			}
+		})
+	);
+
 const Page: FC = () => {
 	const [routes, setRoutes] = useState<ReactNode>();
 
-	const { data, error } = useSWR<TMP_WPReactRoutesTree>(["/routes"], fetcher, {
+	const { data, error } = useSWR<WPReactRoutesTree>(["/routes"], fetcher, {
 		fallbackData: getServerData(appConfig.routes.element.id),
 		onSuccess: async (routesTree, _key, _config) => {
-			const TMPRouteTree = Object.keys(routesTree).reduce((acc, key) => {
-				const tuples = Object.keys(routesTree[key]).map((jkey) => {
-					return [jkey, routesTree[key][jkey]];
-				});
-
-				acc[key] = tuples as unknown as RouteTuple;
-
-				return acc;
-			}, {} as { [key: string]: RouteTuple }); // TODO: fix this temporary TMP mess TMPRouteTree => routesTree
-
-			const routesTreeKeys = Object.keys(TMPRouteTree).sort((a, b) =>
-				TMPRouteTree[a][0][0].localeCompare(TMPRouteTree[b][0][0])
-			); // todo: changed here
-
 			const routesElements = await Promise.all(
-				routesTreeKeys.map(
-					async (key) =>
-						await Promise.all(
-							// todo: changed here
-							TMPRouteTree[key].map(async (routeTuple) => {
-								const slug = key === "frontpage" ? "index" : key;
-
-								try {
-									const [path, endpoint] = routeTuple;
-
-									const { default: page } = await import(
-										`@views/pages/${slug}`
-									);
-
-									return (
-										<Route
-											key={path}
-											path={path}
-											element={<View endpoint={endpoint} page={page} />}
-										/>
-									);
-								} catch (e) {
-									console.log(
-										createErrorString({
-											path: "💢: something went wrong in 'core > front > pages.tsx'",
-											message: `😢: failed to import ${slug}.tsx file`,
-										})
-									);
-
-									return null;
-								}
-							})
-						)
-				)
+				Object.keys(routesTree).map(async (templateName) => {
+					return await recursivelyLoadRoutesTree(
+						templateName,
+						routesTree[templateName]
+					);
+				})
 			);
 
 			setRoutes(routesElements);

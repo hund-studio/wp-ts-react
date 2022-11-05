@@ -1,9 +1,9 @@
 <?php
 
 return [
-	"singular"  		=> "Tag",
-	"plural"    		=> "Tags",
-	"targets" 			=> ['project', 'page'],
+	"singular"  		=> "Session",
+	"plural"    		=> "Sessions",
+	"targets" 			=> ['project'],
 	"hierarchical"		=> false,
 	"rewrite"   		=> false,
 	'show_ui' 			=> true,

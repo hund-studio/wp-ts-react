@@ -75,6 +75,7 @@ final class CustomTemplate extends Entity implements Loadable
                 return [
                     Helpers::makeFullUrl($targetEntityPath) =>
                     Helpers::makeFullUrl(
+                        "post-type",
                         $targetEntity->getSinglePath(),
                         $target['slug']
                     )

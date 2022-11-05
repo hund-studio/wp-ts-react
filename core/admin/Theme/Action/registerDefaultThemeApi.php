@@ -25,7 +25,12 @@ new ApiRoute('GET', '/frontpage', function () {
 
     $WP_restResponse = rest_do_request(new \WP_REST_Request(
         'GET',
-        '/' . Config::get('restNamespace') . "/page/$frontpageSlug"
+        Helpers::makeFullUrl(
+            Config::get('restNamespace'),
+            "post-type",
+            "page",
+            $frontpageSlug
+        )
     ));
 
     if (empty($WP_restResponse))
@@ -37,6 +42,59 @@ new ApiRoute('GET', '/frontpage', function () {
 
     return $WP_restResponse;
 });
+
+new ApiRoute('GET', '/post-types', function () {
+    $iterator = Config::getLoaders()
+        ->offsetGet('postTypes')
+        ->getEntities();
+
+    return new \WP_REST_Response(array_map(function ($instance) {
+        return $instance->getWpPostType();
+    }, iterator_to_array($iterator)), 200);
+});
+
+new ApiRoute(
+    'GET',
+    '/taxonomies',
+    function (\WP_REST_Request $request) {
+        $queryParameters = $request->get_query_params();
+
+        $iterator = Config::getLoaders()
+            ->offsetGet('taxonomies')
+            ->getEntities();
+
+        $taxonomies = array_map(function ($instance) {
+            $wpObject =  $instance->getWpTaxonomy();
+
+            $taxonomy = [
+                'slug' =>  $wpObject->name,
+                'label' => $wpObject->label,
+                'available_in' => $wpObject->object_type,
+                'terms' => get_terms(
+                    $wpObject->name,
+                    ['hide_empty' => false,]
+                )
+            ];
+
+            return $taxonomy;
+        }, iterator_to_array($iterator));
+
+        if (isset($queryParameters['post_type'])) {
+            $queriedPostTypes = is_array($queryParameters['post_type'])
+                ? $queryParameters['post_type']
+                : [$queryParameters['post_type']];
+            $taxonomies = array_filter(
+                $taxonomies,
+                fn ($taxonomy) => !array_diff(
+                    $queriedPostTypes,
+                    $taxonomy['available_in']
+                )
+            );
+        }
+
+        return new \WP_REST_Response($taxonomies, 200);
+    }
+);
 
 if (function_exists('get_fields')) {
     new ApiRoute('GET', '/options', function () {

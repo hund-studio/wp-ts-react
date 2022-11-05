@@ -2,16 +2,21 @@
 	position: fixed;
 	top: 0;
 	right: 0;
-	padding: 10px 15px;
-	padding-top: 0;
-	opacity: 0.8;
+	padding: 5px;
+	opacity: 0.3;
 	z-index: 99999;
+	cursor: default;
+	user-select: none;
+
+	&:hover {
+		opacity: 1;
+	}
 
 	.inner {
-		padding: 5px 7.5px;
-		background: #fa3d3d;
+		background: #fb5b5b;
+		border-radius: 5px;
 		color: #fff;
 		font-size: 12px;
-		border-radius: 0 0 5px 5px;
+		padding: 2.5px 5px;
 	}
 }

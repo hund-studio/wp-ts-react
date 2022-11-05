@@ -1,9 +1,22 @@
 html,
 body {
-	background-color: black;
-	color: white;
+	background-color: #1f1f1f;
+	color: #f1f1f1;
 }
 
 a {
 	color: inherit;
+}
+
+mark {
+	color: inherit;
+	background-color: #f1f1f127;
+	border-radius: 0.25em;
+	padding: 0 0.25em;
+	margin: 0.25em;
+}
+
+button.active {
+	background-color: #3f89ff;
+	color: #f1f1f1;
 }

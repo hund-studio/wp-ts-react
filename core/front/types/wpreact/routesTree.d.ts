@@ -1,2 +1,3 @@
-type WPReactRoutesTree = { [key: string]: RouteTuple[] };
-type TMP_WPReactRoutesTree = { [key: string]: { [key: string]: string } };
+interface WPReactRoutesTree {
+	[key: string]: { [key: string]: string | WPReactRoutesTree };
+}

@@ -1,11 +1,11 @@
 <?php
 
 return [
-	"singular"  		=> "Category",
-	"plural"    		=> "Categories",
+	"singular"  		=> "Tag",
+	"plural"    		=> "Tags",
 	"targets" 			=> ['project'],
-	"hierarchical"		=> true,
-	"rewrite"   		=> "category",
+	"hierarchical"		=> false,
+	"rewrite"   		=> false,
 	'show_ui' 			=> true,
 	'show_admin_column'	=> true,
 	"vanilla"   		=> [],
