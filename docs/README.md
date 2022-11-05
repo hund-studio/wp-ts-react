@@ -97,3 +97,12 @@ To start there is one last thing to do: configure your WordPress instances. You 
 ### What's next
 
 - How to configure your WordPress instance: Create Custom Post Types, Taxonomies, Custom Templates, Custom API endpoints, Menus, and Options Pages directly from your theme to, almost, avoid the use of external plugins.
+
+## Compatible plugins
+
+To unlock the full potential of WordPress we added built-in support for a few, optional, well-known plugins. Full compatibility with the entire WordPress plugin ecosystem is not guaranteed but is presumed.
+
+Here you can find a list with built-in supported plugins with their doc.
+
+- [Advanced Custom Fields](https://www.advancedcustomfields.com/) (and its [Pro](https://www.advancedcustomfields.com/pro/) version): It can be used to implement additional Custom Fields on categories and post types. ACF fields will automatically be included in each page's data.
+- [Rank Math](https://rankmath.com/): with this plugin page SEO is automatically handled by wp-ts-react.
