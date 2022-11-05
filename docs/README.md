@@ -2,12 +2,13 @@
 
 **wp-ts-react** is a WordPress theme preconfigured with a Typescript + React system which allows you to handle a minimal WordPress configuration and a React frontend development workflow in one repository.
 
-| Index                                                   |
-| :------------------------------------------------------ |
-| [Statement](#statement)                                 |
-| [Getting Started](#getting-started)                     |
-| [Wordpress Configuration](./WORDPRESS_CONFIGURATION.md) |
-| [Plugin Compatibility](#plugin-compatibility)           |
+|     | Index                                                          |
+| :-: | :------------------------------------------------------------- |
+|     | [Statement](#statement)                                        |
+|     | [Getting Started](#getting-started)                            |
+| 🛠️  | [Wordpress Configuration](./WORDPRESS_CONFIGURATION.md)        |
+|     | [Plugin Compatibility](#plugin-compatibility)                  |
+| 🆘  | [Help, Issues and Contribution](#help-issues-and-contribution) |
 
 ## Statement
 
@@ -97,7 +98,7 @@ To start there is one last thing to do: configure your WordPress instances. You 
 
 ### What's next
 
-- How to configure your WordPress instance: Create Custom Post Types, Taxonomies, Custom Templates, Custom API endpoints, Menus, and Options Pages directly from your theme to, almost, avoid the use of external plugins.
+- [How to configure your WordPress instance](./WORDPRESS_CONFIGURATION.md): Create Custom Post Types, Taxonomies, Custom Templates, Custom API endpoints, Menus, and Options Pages directly from your theme to, almost, avoid the use of external plugins.
 
 ## Plugin Compatibility
 
@@ -107,3 +108,13 @@ Here you can find a list with built-in supported plugins with their doc.
 
 - [Advanced Custom Fields](https://www.advancedcustomfields.com/) (and its [Pro](https://www.advancedcustomfields.com/pro/) version): It can be used to implement additional Custom Fields on categories and post types. ACF fields will automatically be included in each page's data.
 - [Rank Math](https://rankmath.com/): with this plugin page SEO is automatically handled by wp-ts-react.
+
+## Help, Issues and Contribution
+
+There is no direct support line available.
+To request help or report issues please use the [GitHub Issues](https://github.com/hund-studio/wp-ts-react/issues) page.
+We will answer you as soon as possible.
+
+This tool is open to everybody's contribution, fork it, open a [pull request](https://github.com/hund-studio/wp-ts-react/pulls), or open an [issue](https://github.com/hund-studio/wp-ts-react/issues) to discuss improvements.
+
+Feel free to use all of Github's tools for [pull requests](https://github.com/hund-studio/wp-ts-react/pulls) and [error reporting](https://github.com/hund-studio/wp-ts-react/issues).
