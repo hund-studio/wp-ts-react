@@ -7,6 +7,9 @@
 |     | [Statement](#statement)                                        |
 |     | [Getting Started](#getting-started)                            |
 | 🛠️  | [Wordpress Configuration](./WORDPRESS_CONFIGURATION.md)        |
+| 🔜  | [Use React templates](./USE_TEMPLATES.md)                      |
+| 🔜  | [Available Core Components](./CORE_COMPONENTS.md)              |
+| 🔜  | [Available Core Hooks](./CORE_HOOKS.md)                        |
 |     | [Plugin Compatibility](#plugin-compatibility)                  |
 | 🆘  | [Help, Issues and Contribution](#help-issues-and-contribution) |
 
