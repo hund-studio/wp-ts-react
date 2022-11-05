@@ -7,6 +7,7 @@
 | [Statement](#statement)                                 |
 | [Getting Started](#getting-started)                     |
 | [Wordpress Configuration](./WORDPRESS_CONFIGURATION.md) |
+| [Plugin Compatibility](#plugin-compatibility)           |
 
 ## Statement
 
@@ -98,7 +99,7 @@ To start there is one last thing to do: configure your WordPress instances. You 
 
 - How to configure your WordPress instance: Create Custom Post Types, Taxonomies, Custom Templates, Custom API endpoints, Menus, and Options Pages directly from your theme to, almost, avoid the use of external plugins.
 
-## Compatible plugins
+## Plugin Compatibility
 
 To unlock the full potential of WordPress we added built-in support for a few, optional, well-known plugins. Full compatibility with the entire WordPress plugin ecosystem is not guaranteed but is presumed.
 
