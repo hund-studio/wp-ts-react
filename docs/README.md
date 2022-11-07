@@ -42,7 +42,7 @@ You can easily clone this starter as a new repository in your GitHub account by 
 
 You can easily download this starter as a `.zip` file using the `Code` dropdown on the top right of the [GitHub Repository](https://github.com/hund-studio/wp-ts-react).
 
-[![download-button](./assets/clone-button.svg)](https://github.com/hund-studio/wp-ts-react/archive/refs/heads/main.zip)
+[![download-button](./assets/download-button.svg)](https://github.com/hund-studio/wp-ts-react/archive/refs/heads/main.zip)
 
 #### Method 3: Manually cloning this repository
 
