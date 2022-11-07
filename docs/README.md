@@ -8,7 +8,7 @@
 |     | Index                                                          |
 | :-: | :------------------------------------------------------------- |
 |     | [Statement](#statement)                                        |
-|     | [Getting Started](#getting-started)                            |
+| 👟  | [Getting Started](#getting-started)                            |
 | 🛠️  | [Wordpress Configuration](./WORDPRESS_CONFIGURATION.md)        |
 | 🔜  | [Use React templates](./USE_TEMPLATES.md)                      |
 | 🔜  | [Available Core Components](./CORE_COMPONENTS.md)              |
@@ -18,13 +18,13 @@
 
 ## Statement
 
-🔪 **Have you ever thought WordPress development is a hell of PHP templating, messy API, and does not fit your development workflow?**
+🔪 **Do you need a ready-to-go tool for small websites (such as one page and small portfolios) which needs to run on an old scrappy server of some super cheap hosting?**
 
 🔪 **Are you willing to work with React but proper template integration with WordPress is a real pain?**
 
-🔪 **Have you ever noticed that SEO/Socials previews are a pain when dealing with Create React App frontend and headless WordPress?**
+🔪 **Have you ever thought WordPress development is a hell of PHP templating, messy API, and does not fit your development workflow?**
 
-🔪 **Do you need a ready-to-go tool for small websites (such as one page and small portfolios) which needs to run on an old scrappy server of some super cheap hosting?**
+🔪 **Have you ever noticed that SEO/Socials previews are a pain when dealing with Create React App frontend and headless WordPress?**
 
 👌 Well, this repository is something you might be interested in.
 
@@ -36,11 +36,13 @@
 
 You can easily clone this starter as a new repository in your GitHub account by using the green button on the top right of the [GitHub Repository](https://github.com/hund-studio/wp-ts-react).
 
-[![use-template-button](./assets/use-template-button.svg)](https://github.com/hund-studio/wp-ts-react/generate)
+[![clone-button](./assets/clone-button.svg)](https://github.com/hund-studio/wp-ts-react/generate)
 
 #### Method 2: Dowload a zip
 
 You can easily download this starter as a `.zip` file using the `Code` dropdown on the top right of the [GitHub Repository](https://github.com/hund-studio/wp-ts-react).
+
+[![download-button](./assets/clone-button.svg)](https://github.com/hund-studio/wp-ts-react/archive/refs/heads/main.zip)
 
 #### Method 3: Manually cloning this repository
 
