@@ -118,9 +118,15 @@ Here you can find a list with built-in supported plugins with their doc.
 ## Help, Issues and Contribution
 
 There is no direct support line available.
-To request help or report issues please use the [GitHub Issues](https://github.com/hund-studio/wp-ts-react/issues) page.
+To report bugs, request new features, or ask for help, please file a new [Issue](https://github.com/hund-studio/support/issues) or visit our [Discussions page](https://github.com/hund-studio/support/discussions).
 We will answer you as soon as possible.
 
-This tool is open to everybody's contribution, fork it, open a [pull request](https://github.com/hund-studio/wp-ts-react/pulls), or open an [issue](https://github.com/hund-studio/wp-ts-react/issues) to discuss improvements.
+|     | I need...                          | What to do?                                                                                                         |
+| :-: | :--------------------------------- | :------------------------------------------------------------------------------------------------------------------ |
+| 🆘  | ...some help using this repository | [Search/Start a new Discussion](https://github.com/hund-studio/support/discussions/categories/q-a)                  |
+| 👾  | ...to report a bug                 | [Search/Create an Issue for Bug Report](https://github.com/hund-studio/support/issues/new/choose)                   |
+| 🆕  | ...to request a new feature        | [Search/Create an Issue for Feature Request](https://github.com/hund-studio/support/issues/new/choose)              |
+| 📄  | ...help with documentation         | [Search/Start a new Discussion](https://github.com/hund-studio/support/discussions/categories/q-a)                  |
+| 👆  | ...to create a pull request        | [Read: Collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) |
 
-Feel free to use all of Github's tools for [pull requests](https://github.com/hund-studio/wp-ts-react/pulls) and [error reporting](https://github.com/hund-studio/wp-ts-react/issues).
+This tool is open to everybody's contribution, fork it, open a [Pull Request](https://github.com/hund-studio/wp-ts-react/pulls), or start a [Discussion](https://github.com/hund-studio/support/discussions/categories/ideas) to discuss improvements.
