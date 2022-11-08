@@ -2,14 +2,14 @@
 
 This is a list of all available public API endpoints exposed from **wp-ts-react**. You can use them to fetch data without using `@core/hooks`.
 
-| Endpoint                  | Description                              |
-| :------------------------ | :--------------------------------------- |
-| [Frontpage](#frontpage)   | Fetch _Frontpage_ data                   |
-| [Menus](#menus)           | Fetch registered _Menus_ with items      |
-| [Post Types](#post-types) | Fetch registered _Post Types_            |
-| [Post Type]()             | Fetch registered _Post Type_ by **slug** |
-| [Taxonomies]()            | Fetch registered _Taxonomies_            |
-| [Taxonomy]()              | Fetch registered _Taxonomy_ by **slug**  |
+| Endpoint                     | Description                              |
+| :--------------------------- | :--------------------------------------- |
+| [Frontpage](#🌐-frontpage)   | Fetch _Frontpage_ data                   |
+| [Menus](#🌐-menus)           | Fetch registered _Menus_ with items      |
+| [Post Types](#🌐-post-types) | Fetch registered _Post Types_            |
+| [Post Type](#🌐-post-types)  | Fetch registered _Post Type_ by **slug** |
+| [Taxonomies](#🌐-taxonomies) | Fetch registered _Taxonomies_            |
+| [Taxonomy]()                 | Fetch registered _Taxonomy_ by **slug**  |
 
 ## 🌐 Frontpage
 
@@ -24,7 +24,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | OK     | `200` |
 
 <details>
-<summary>Example Response</summary>
+<summary>Example `200` Response</summary>
 
 ```json
 {
@@ -79,7 +79,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | `frontpage_not_found` | `404` |
 
 <details>
-<summary>Example Response</summary>
+<summary>Example `404` Response</summary>
 
 ```json
 {
@@ -106,7 +106,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | OK     | `200` |
 
 <details>
-<summary>Example Response</summary>
+<summary>Example `200` Response</summary>
 
 ```json
 {
@@ -292,7 +292,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | OK     | `200` |
 
 <details>
-<summary>Example Response</summary>
+<summary>Example `200` Response</summary>
 
 ```json
 {[
@@ -494,20 +494,101 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | :----- | :------------------------------------------------------- | ---------: |
 | `GET`  | `/wp-json/wpreact/v1/post-type/<post-type>/<post-slug> ` |         NO |
 
-#### Query parameters
+#### Request Query Parameters
+
+| Property Name     | Value Type | Required | Description                                                                     |
+| :---------------- | :--------- | :------- | :------------------------------------------------------------------------------ |
+| `<taxonomy-slug>` | string[]   | false    | Use a valid taxonomy `slug` as object key and a string array of terms as values |
+
+#### Request Query Parameters Example
 
 ```json
 {
-    <taxonomy-slug>: [<taxonomy-term>]
+    tag: [dev, backend, code],
+    category: [uncategorized]
 }
 ```
 
-#### Data Example
+#### Success Response
+
+| Status |  Code |
+| :----- | ----: |
+| OK     | `200` |
+
+<details>
+<summary>Example `200` Response</summary>
 
 ```json
-{
-    tag: [dev, backend, code]
-}
+[
+  {
+    "ID": 52,
+    "post_author": "1",
+    "post_date": "2022-11-04 08:05:59",
+    "post_date_gmt": "2022-11-04 08:05:59",
+    "post_content": "",
+    "post_title": "Dev project",
+    "post_excerpt": "",
+    "post_status": "publish",
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "post_password": "",
+    "post_name": "dev-project",
+    "to_ping": "",
+    "pinged": "",
+    "post_modified": "2022-11-04 08:05:59",
+    "post_modified_gmt": "2022-11-04 08:05:59",
+    "post_content_filtered": "",
+    "post_parent": 0,
+    "guid": "http://wpreact.test/?post_type=project&#038;p=52",
+    "menu_order": 0,
+    "post_type": "project",
+    "post_mime_type": "",
+    "comment_count": "0",
+    "filter": "raw",
+    "url": "/project/dev-project/",
+    "acf": {
+      "body": ""
+    }
+  },
+  {
+    "ID": 33,
+    "post_author": "1",
+    "post_date": "2022-07-04 17:03:15",
+    "post_date_gmt": "2022-07-04 17:03:15",
+    "post_content": "",
+    "post_title": "Sample Project",
+    "post_excerpt": "",
+    "post_status": "publish",
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "post_password": "",
+    "post_name": "sample-project",
+    "to_ping": "",
+    "pinged": "",
+    "post_modified": "2022-11-04 17:14:35",
+    "post_modified_gmt": "2022-11-04 17:14:35",
+    "post_content_filtered": "",
+    "post_parent": 0,
+    "guid": "http://wpreact.test/?post_type=project&#038;p=33",
+    "menu_order": 0,
+    "post_type": "project",
+    "post_mime_type": "",
+    "comment_count": "0",
+    "filter": "raw",
+    "url": "/project/sample-project/",
+    "acf": {
+      "body": "Sample Project"
+    }
+  }
+]
 ```
 
-...more coming soon
+</details>
+
+#### Error Response
+
+| Status | Code |
+| :----- | ---: |
+| -      |    - |
+
+## 🌐 Taxonomies
