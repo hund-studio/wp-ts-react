@@ -3,13 +3,13 @@
 **wp-ts-react** use some custom API endpoints generated from the WordPress Configuration to exchange data between the backend and the React frontend.
 If you need to access those data you can create a GET Request or you can import the available `swr` hooks from `@core/hooks`.
 
-| Hook                               |
-| :--------------------------------- |
-| [useData](#🪝-usedata)             |
-| [useMenus](#🪝-usemenus)           |
-| [usePostTypes](#🪝-useposttypes)   |
-| [usePostType](#🪝-useposttype)     |
-| [useTaxonomies](#🪝-usetaxonomies) |
+| Hook                             |
+| :------------------------------- |
+| [useData](#-usedata)             |
+| [useMenus](#-usemenus)           |
+| [usePostTypes](#-useposttypes)   |
+| [usePostType](#-useposttype)     |
+| [useTaxonomies](#-usetaxonomies) |
 
 ## 🪝 useData
 
