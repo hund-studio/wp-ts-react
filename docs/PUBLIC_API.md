@@ -1,5 +1,7 @@
 # Available public API Endpoint
 
+> ⚠️ Some endpoints might be subject to improvise changes until the first stable release.
+
 This is a list of all available public API endpoints exposed from **wp-ts-react**. You can use them to fetch data without using `@core/hooks`.
 
 | Endpoint                     | Description                              |
