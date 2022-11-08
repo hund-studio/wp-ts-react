@@ -1,4 +1,4 @@
-import { MenuOnBottom } from "../layouts/menuOnBottom/MenuOnBottom";
+import { MenuOnBottom } from "@views/layouts/MenuOnBottom/menuOnBottom";
 
 const ProjectArchive: Page = ({ data }: any) => {
 	return (

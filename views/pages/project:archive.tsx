@@ -1,6 +1,6 @@
 import { usePostType, useTaxonomies } from "@core/hooks";
 import { Link } from "@core/Link";
-import { MenuOnTop } from "@views/layouts/menuOnTop/MenuOnTop";
+import { MenuOnTop } from "@views/layouts/MenuOnTop/menuOnTop";
 import { removeEmptyParams } from "core/front/utils";
 import { Fragment, useEffect, useState } from "react";
 

@@ -1,5 +1,5 @@
 import { Link } from "@core/Link";
-import { MenuOnBottom } from "@views/layouts/menuOnBottom/MenuOnBottom";
+import { MenuOnBottom } from "@views/layouts/MenuOnBottom/menuOnBottom";
 
 const Index: Page = ({ data }: any) => {
 	return (

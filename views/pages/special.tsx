@@ -1,4 +1,4 @@
-import { MenuOnTop } from "@views/layouts/menuOnTop/MenuOnTop";
+import { MenuOnTop } from "@views/layouts/MenuOnTop/menuOnTop";
 
 const SpecialTemplate: Page = ({ data }: any) => {
 	return (
