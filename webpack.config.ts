@@ -104,7 +104,7 @@ const config = async (
 		},
 		resolve: {
 			modules: ["node_modules"],
-			extensions: [".js", ".tsx", ".ts", ".scss", ".svg"],
+			extensions: [".js", ".tsx", ".ts", ".scss"],
 			plugins: [
 				new TsconfigPathsPlugin({
 					configFile: dir.tsconfig,
