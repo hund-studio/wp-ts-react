@@ -13,6 +13,7 @@
 | :-: | :-------------------------------------------------------------- |
 | 📣  | [Statement](#statement)                                         |
 | 👟  | [Getting Started](#getting-started)                             |
+| 🌐  | [Public API](./PUBLIC_API.md)                                   |
 | ⚙️  | [Wordpress Backend Configuration](./WORDPRESS_CONFIGURATION.md) |
 | ⚛️  | [React Frontend Templates](./USE_TEMPLATES.md)                  |
 | ⚛️  | [React Core Components](./CORE_COMPONENTS.md)                   |
