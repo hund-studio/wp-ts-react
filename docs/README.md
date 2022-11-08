@@ -11,13 +11,13 @@
 
 |     | Index                                                           |
 | :-: | :-------------------------------------------------------------- |
-|     | [Statement](#statement)                                         |
+| 📣  | [Statement](#statement)                                         |
 | 👟  | [Getting Started](#getting-started)                             |
 | ⚙️  | [Wordpress Backend Configuration](./WORDPRESS_CONFIGURATION.md) |
 | ⚛️  | [React Frontend Templates](./USE_TEMPLATES.md)                  |
 | ⚛️  | [React Core Components](./CORE_COMPONENTS.md)                   |
 | ⚛️  | [React Wordpress Data Hooks](./CORE_HOOKS.md)                   |
-|     | [Plugin Compatibility](#plugin-compatibility)                   |
+| 🔌  | [Plugin Compatibility](#plugin-compatibility)                   |
 | 🆘  | [Help, Issues and Contribution](#help-issues-and-contribution)  |
 
 ## Statement
