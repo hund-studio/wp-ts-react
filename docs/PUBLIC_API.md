@@ -15,7 +15,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 | Method | URL                             | Needs Auth |
 | :----- | :------------------------------ | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/frontpage` |         NO |
+| `GET`  | `/wp-json/wpreact/v1/frontpage` |      false |
 
 #### Success Response
 
@@ -97,7 +97,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 | Method | URL                         | Needs Auth |
 | :----- | :-------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/menus` |         NO |
+| `GET`  | `/wp-json/wpreact/v1/menus` |      false |
 
 #### Success Response
 
@@ -283,7 +283,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 | Method | URL                              | Needs Auth |
 | :----- | :------------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/post-types` |         NO |
+| `GET`  | `/wp-json/wpreact/v1/post-types` |      false |
 
 #### Success Response
 
@@ -492,7 +492,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 | Method | URL                                                    | Needs Auth |
 | :----- | :----------------------------------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/post-type/:post-type/:post-slug ` |         NO |
+| `GET`  | `/wp-json/wpreact/v1/post-type/:post-type/:post-slug ` |      false |
 
 #### Request Query Parameters
 
@@ -594,9 +594,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Taxonomies
 
-| Method | URL                             | Needs Auth |
-| :----- | :------------------------------ | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/frontpage` |         NO |
+| Method | URL                              | Needs Auth |
+| :----- | :------------------------------- | ---------: |
+| `GET`  | `/wp-json/wpreact/v1/taxonomies` |      false |
 
 #### Request Query Parameters
 
@@ -706,7 +706,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 | Method | URL                                            | Needs Auth |
 | :----- | :--------------------------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/taxonomy/:taxonomy-slug ` |         NO |
+| `GET`  | `/wp-json/wpreact/v1/taxonomy/:taxonomy-slug ` |      false |
 
 #### Request Query Parameters
 
