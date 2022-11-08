@@ -13,9 +13,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## Frontpage
 
-| Method | URL                           | Needs Auth |
-| :----- | :---------------------------- | ---------: |
-| GET    | /wp-json/wpreact/v1/frontpage |         NO |
+| Method | URL                             | Needs Auth |
+| :----- | :------------------------------ | ---------: |
+| `GET`  | `/wp-json/wpreact/v1/frontpage` |         NO |
 
 #### Data constraints
 
@@ -31,9 +31,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 #### Success Response
 
-| Status | Code |
-| :----- | :--- |
-| 200    | OK   |
+| Status |  Code |
+| :----- | ----: |
+| OK     | `200` |
 
 <details>
 <summary>Example Response</summary>
@@ -84,11 +84,11 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 </details>
 
-Error Response
+#### Error Response
 
-| Status              | Code |
-| :------------------ | :--- |
-| frontpage_not_found | 404  |
+| Status                |  Code |
+| :-------------------- | ----: |
+| `frontpage_not_found` | `404` |
 
 <details>
 <summary>Example Response</summary>
@@ -107,27 +107,27 @@ Error Response
 
 ## Menus
 
-| Method | URL                       | Needs Auth |
-| :----- | :------------------------ | ---------: |
-| GET    | /wp-json/wpreact/v1/menus |         NO |
+| Method | URL                         | Needs Auth |
+| :----- | :-------------------------- | ---------: |
+| `GET`  | `/wp-json/wpreact/v1/menus` |         NO |
 
-Data constraints
-
-```json
-{}
-```
-
-Data Example
+#### Data constraints
 
 ```json
 {}
 ```
 
-Success Response
+#### Data Example
 
-| Status | Code |
-| :----- | :--- |
-| 200    | OK   |
+```json
+{}
+```
+
+#### Success Response
+
+| Status |  Code |
+| :----- | ----: |
+| OK     | `200` |
 
 <details>
 <summary>Example Response</summary>
@@ -297,35 +297,35 @@ Success Response
 
 </details>
 
-Error Response
+#### Error Response
 
 | Status | Code |
-| :----- | :--- |
-| -      | -    |
+| :----- | ---: |
+| -      |    - |
 
 ## Post Types
 
-| Method | URL                            | Needs Auth |
-| :----- | :----------------------------- | ---------: |
-| GET    | /wp-json/wpreact/v1/post-types |         NO |
+| Method | URL                              | Needs Auth |
+| :----- | :------------------------------- | ---------: |
+| `GET`  | `/wp-json/wpreact/v1/post-types` |         NO |
 
-Data constraints
-
-```json
-{}
-```
-
-Data Example
+#### Data constraints
 
 ```json
 {}
 ```
 
-Success Response
+#### Data Example
 
-| Status | Code |
-| :----- | :--- |
-| 200    | OK   |
+```json
+{}
+```
+
+#### Success Response
+
+| Status |  Code |
+| :----- | ----: |
+| OK     | `200` |
 
 <details>
 <summary>Example Response</summary>
@@ -518,19 +518,19 @@ Success Response
 
 </details>
 
-Error Response
+#### Error Response
 
 | Status | Code |
-| :----- | :--- |
-| -      | -    |
+| :----- | ---: |
+| -      |    - |
 
 ## Post Type
 
-| Method | URL                                                       | Needs Auth |
-| :----- | :-------------------------------------------------------- | ---------: |
-| GET    | /wp-json/wpreact/v1/post-type/`<post-type>`/`<post-slug>` |         NO |
+| Method | URL                                                      | Needs Auth |
+| :----- | :------------------------------------------------------- | ---------: |
+| `GET`  | `/wp-json/wpreact/v1/post-type/<post-type>/<post-slug> ` |         NO |
 
-Query parameters
+#### Query parameters
 
 ```json
 {
@@ -538,7 +538,7 @@ Query parameters
 }
 ```
 
-Data Example
+#### Data Example
 
 ```json
 {
