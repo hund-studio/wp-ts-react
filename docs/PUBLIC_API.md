@@ -17,19 +17,19 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | :----- | :---------------------------- | ---------: |
 | GET    | /wp-json/wpreact/v1/frontpage |         NO |
 
-Data constraints
+#### Data constraints
 
 ```json
 {}
 ```
 
-Data Example
+#### Data Example
 
 ```json
 {}
 ```
 
-Success Response
+#### Success Response
 
 | Status | Code |
 | :----- | :--- |
