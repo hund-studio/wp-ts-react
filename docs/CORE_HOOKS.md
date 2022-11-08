@@ -8,7 +8,7 @@ If you need to access those data you can create a GET Request or you can import 
 
 ## 🪝 useData
 
-This hook returns the current page data.
+This hook returns the current **Post** data.
 
 ## 🪝 useMenus
 
