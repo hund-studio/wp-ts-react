@@ -40,13 +40,13 @@ return [
 
 Available configuration:
 
-| Property name | Description                                                                                                         | Type   | Required | Default               |
-| :------------ | :------------------------------------------------------------------------------------------------------------------ | :----- | :------- | :-------------------- |
-| singular      | Singular name                                                                                                       | string | false    | `ucwords(<filename>)` |
-| plural        | Plural name                                                                                                         | string | false    | `ucwords(<filename>)` |
-| archive       | Custom archive slug                                                                                                 | string | false    | `<filename>`          |
-| rewrite       | Custom single slug                                                                                                  | string | false    | `<filename>`          |
-| vanilla       | [register_post_type](https://developer.wordpress.org/reference/functions/register_post_type/#parameters) parameters | array  | false    | `[]`                  |
+| Property name | Description                                                                                                            | Type   | Required | Default               |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------- | :----- | :------- | :-------------------- |
+| singular      | Singular name                                                                                                          | string | false    | `ucwords(<filename>)` |
+| plural        | Plural name                                                                                                            | string | false    | `ucwords(<filename>)` |
+| archive       | Custom archive slug                                                                                                    | string | false    | `<filename>`          |
+| rewrite       | Custom single slug                                                                                                     | string | false    | `<filename>`          |
+| vanilla       | [register_post_type](https://developer.wordpress.org/reference/functions/register_post_type/#parameters) `$args` array | array  | false    | `[]`                  |
 
 ### Edit an existing Custom Post Type
 
@@ -63,10 +63,10 @@ return [
 
 Available configuration:
 
-| Property name | Description                                                                                                                      | Type  | Required | Default |
-| :------------ | :------------------------------------------------------------------------------------------------------------------------------- | :---- | :------- | :------ |
-| add           | [add_post_type_support](https://developer.wordpress.org/reference/functions/remove_post_type_support/#parameters) $feature array | array | false    | `[]`    |
-| remove        | [remove_post_type_support](https://developer.wordpress.org/reference/functions/add_post_type_support/#parameters) $feature array | array | false    | `[]`    |
+| Property name | Description                                                                                                                        | Type  | Required | Default |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :---- | :------- | :------ |
+| add           | [add_post_type_support](https://developer.wordpress.org/reference/functions/remove_post_type_support/#parameters) `$feature` array | array | false    | `[]`    |
+| remove        | [remove_post_type_support](https://developer.wordpress.org/reference/functions/add_post_type_support/#parameters) `$feature` array | array | false    | `[]`    |
 
 ## Taxonomies
 
