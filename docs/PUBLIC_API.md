@@ -29,12 +29,14 @@ Data Example
 {}
 ```
 
-<details>
-<summary>Success Response</summary>
+Success Response
 
 | Status | Code |
 | :----- | :--- |
 | 200    | OK   |
+
+<details>
+<summary>Example Response</summary>
 
 ```json
 {
@@ -82,12 +84,14 @@ Data Example
 
 </details>
 
-<details>
-<summary>Error Response</summary>
+Error Response
 
 | Status              | Code |
 | :------------------ | :--- |
 | frontpage_not_found | 404  |
+
+<details>
+<summary>Example Response</summary>
 
 ```json
 {
@@ -119,12 +123,14 @@ Data Example
 {}
 ```
 
-<details>
-<summary>Success Response</summary>
+Success Response
 
 | Status | Code |
 | :----- | :--- |
 | 200    | OK   |
+
+<details>
+<summary>Example Response</summary>
 
 ```json
 {
@@ -291,6 +297,12 @@ Data Example
 
 </details>
 
+Error Response
+
+| Status | Code |
+| :----- | :--- |
+| -      | -    |
+
 ## Post Types
 
 | Method | URL                            | Needs Auth |
@@ -309,12 +321,14 @@ Data Example
 {}
 ```
 
-<details>
-<summary>Success Response</summary>
+Success Response
 
 | Status | Code |
 | :----- | :--- |
 | 200    | OK   |
+
+<details>
+<summary>Example Response</summary>
 
 ```json
 {[
@@ -503,6 +517,12 @@ Data Example
 ```
 
 </details>
+
+Error Response
+
+| Status | Code |
+| :----- | :--- |
+| -      | -    |
 
 ## Post Type
 
