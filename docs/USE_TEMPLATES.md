@@ -8,6 +8,14 @@
 
 Except for the `/views/pages` folder you can organize your filesystem as you wish, this repository comes with a suggested structure and with some useful hooks and components. Feel free to delete them and create your filesystem.
 
+| Index                                                                   |
+| :---------------------------------------------------------------------- |
+| [The \_app entry file](#the-entry-_apptsx-file)                         |
+| [Front Page template](#the-default-indextsx-file)                       |
+| [Post Types and Custom Templates](#post-types-and-custom-templates)     |
+| [Page Layouts](#use-page-layouts)                                       |
+| [Access Wordpress data on frontend](#access-wordpress-data-on-frontend) |
+
 ## The entry `_app.tsx` file
 
 The `/views/pages/_app.tsx` file is the entry point of the React frontend. Use it to include global styles and to create your "base" page layout (ae. if all your pages have the same footer you can insert it here).
@@ -22,12 +30,12 @@ import Page from "@core/page";
 import "./../styles/global.scss";
 
 const App: FC = () => {
-	return (
-		<Fragment>
-			<Page />
-			<footer>This footer is common to all templates</footer>
-		</Fragment>
-	);
+  return (
+    <Fragment>
+      <Page />
+      <footer>This footer is common to all templates</footer>
+    </Fragment>
+  );
 };
 
 export default App;
@@ -47,13 +55,13 @@ This is an example Front Page template:
 ```typescript
 // 📄 /views/pages/index.tsx
 const Index: Page = ({ data }: any) => {
-	return (
-		<main>
-			<h1>Front Page</h1>
-			<p>This is the Front Page layout.</p>
-			<input type={"text"} value={data?.acf?.body} disabled />
-		</main>
-	);
+  return (
+    <main>
+      <h1>Front Page</h1>
+      <p>This is the Front Page layout.</p>
+      <input type={"text"} value={data?.acf?.body} disabled />
+    </main>
+  );
 };
 
 export default Index;
@@ -68,12 +76,12 @@ Each file must export a React `Page` Component as default to be dynamically impo
 ```typescript
 // 📄 /views/pages/page.tsx
 const Page: Page = ({ data }: any) => {
-	return (
-		<main>
-			<h1>Page</h1>
-			<input type={"text"} value={data?.acf?.body} disabled />
-		</main>
-	);
+  return (
+    <main>
+      <h1>Page</h1>
+      <input type={"text"} value={data?.acf?.body} disabled />
+    </main>
+  );
 };
 
 export default Page;
@@ -88,12 +96,12 @@ This is an example Project Archive template:
 ```typescript
 // 📄 /views/pages/project:single.tsx
 const ProjectSingle: Page = ({ data }: any) => {
-	return (
-		<main>
-			<h1>Single Project page</h1>
-			<input type={"text"} value={data?.acf?.body} disabled />
-		</main>
-	);
+  return (
+    <main>
+      <h1>Single Project page</h1>
+      <input type={"text"} value={data?.acf?.body} disabled />
+    </main>
+  );
 };
 
 export default ProjectSingle;
@@ -109,19 +117,19 @@ If you registered a `Special` template you have to match the same name, ae. `spe
 ```typescript
 // 📄 /views/pages/special.tsx
 const SpecialTemplate: Page = ({ data }: any) => {
-	return (
-		<main>
-			<h1>This page uses a Special Template</h1>
-			<p>
-				This page uses the
-				<mark>
-					<code>special-template.tsx</code>
-				</mark>
-				template.
-			</p>
-			<input type={"text"} value={data?.acf?.body} disabled />
-		</main>
-	);
+  return (
+    <main>
+      <h1>This page uses a Special Template</h1>
+      <p>
+        This page uses the
+        <mark>
+          <code>special-template.tsx</code>
+        </mark>
+        template.
+      </p>
+      <input type={"text"} value={data?.acf?.body} disabled />
+    </main>
+  );
 };
 
 export default SpecialTemplate;
@@ -142,12 +150,12 @@ This is an example file that registers a `MenuOnBottom` layout:
 import Header from "../../components/Header/header";
 
 export const MenuOnBottom: Layout = ({ page }) => {
-	return (
-		<div>
-			{page}
-			<Header />
-		</div>
-	);
+  return (
+    <div>
+      {page}
+      <Header />
+    </div>
+  );
 };
 ```
 
@@ -159,12 +167,12 @@ The same structure can be used to create a `MenuOnTop` layout:
 import Header from "../../components/Header/header";
 
 export const MenuOnTop: Layout = ({ page }) => {
-	return (
-		<div>
-			<Header />
-			{page}
-		</div>
-	);
+  return (
+    <div>
+      <Header />
+      {page}
+    </div>
+  );
 };
 ```
 
@@ -175,12 +183,12 @@ This is an example file that adds the `MenuOnBottom` layout to a Page:
 import { MenuOnBottom } from "@views/layouts/MenuOnBottom/menuOnBottom";
 
 const Page: Page = ({ data }: any) => {
-	return (
-		<main>
-			<h1>Page</h1>
-			<input type={"text"} value={data?.acf?.body} disabled />
-		</main>
-	);
+  return (
+    <main>
+      <h1>Page</h1>
+      <input type={"text"} value={data?.acf?.body} disabled />
+    </main>
+  );
 };
 
 Page.layout = MenuOnBottom;
@@ -194,12 +202,12 @@ This is an example file that adds the `MenuOnTop` layout to a Project:
 import { MenuOnTop } from "@views/layouts/MenuOnTop/menuOnTop";
 
 const Project: Page = ({ data }: any) => {
-	return (
-		<main>
-			<h1>Project</h1>
-			<input type={"text"} value={data?.acf?.body} disabled />
-		</main>
-	);
+  return (
+    <main>
+      <h1>Project</h1>
+      <input type={"text"} value={data?.acf?.body} disabled />
+    </main>
+  );
 };
 
 Project.layout = MenuOnTop;
@@ -212,3 +220,5 @@ export default Project;
 To access WordPress data on frontend you just have to add `({data})` as a parameter of the rendering function. `data` prop will contain all the WordPress info about the requested page.
 
 > ⚠️ If you have an active installation of ACF or ACF Pro `({data})` object will have an `acf` key containing all the custom data.
+
+For advanced usage checkout the [Core Hooks](./CORE_HOOKS.md) section of the documentation.

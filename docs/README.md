@@ -1,6 +1,6 @@
 # 📦 wp-ts-react
 
-![wordpress](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=+&message=Wordpress&color=003c56)
+![wordPress](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=+&message=Wordpress&color=003c56)
 ![typescript](https://img.shields.io/static/v1?logo=typescript&logoColor=white&label=+&message=Typescript&color=3178c6)
 ![react](https://img.shields.io/static/v1?logo=react&logoColor=black&label=+&message=React&color=61dafb)
 
@@ -13,8 +13,8 @@
 | :-: | :------------------------------------------------------------- |
 |     | [Statement](#statement)                                        |
 | 👟  | [Getting Started](#getting-started)                            |
-| 🛠️  | [Wordpress Configuration](./WORDPRESS_CONFIGURATION.md)        |
-| 🔜  | [Work with React frontend templates](./USE_TEMPLATES.md)       |
+|     | [Wordpress Configuration](./WORDPRESS_CONFIGURATION.md)        |
+|     | [Work with React frontend templates](./USE_TEMPLATES.md)       |
 | 🔜  | [Available Core Components](./CORE_COMPONENTS.md)              |
 | 🔜  | [Available Core Hooks](./CORE_HOOKS.md)                        |
 |     | [Plugin Compatibility](#plugin-compatibility)                  |
