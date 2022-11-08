@@ -1,6 +1,6 @@
 # 📦 wp-ts-react
 
-![WordPress](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=+&message=Wordpress&color=003c56)
+![WordPress](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=+&message=Wordpress+Theme&color=003c56)
 ![Typescript](https://img.shields.io/static/v1?logo=typescript&logoColor=white&label=+&message=Typescript&color=3178c6)
 ![React](https://img.shields.io/static/v1?logo=react&logoColor=black&label=+&message=React&color=61dafb)
 
