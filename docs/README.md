@@ -9,17 +9,17 @@
 
 **wp-ts-react** is a WordPress theme starter preconfigured with a Typescript + React frontend which allows developers to handle WordPress configuration and a React frontend development from one repository.
 
-|     | Index                                                           |
-| :-: | :-------------------------------------------------------------- |
-| 📣  | [Statement](#statement)                                         |
-| 👟  | [Getting Started](#getting-started)                             |
-| 🌐  | [Public API](./PUBLIC_API.md)                                   |
-| ⚙️  | [Wordpress Backend Configuration](./WORDPRESS_CONFIGURATION.md) |
-| ⚛️  | [React Frontend Templates](./USE_TEMPLATES.md)                  |
-| ⚛️  | [React Core Components](./CORE_COMPONENTS.md)                   |
-| ⚛️  | [React Wordpress Data Hooks](./CORE_HOOKS.md)                   |
-| 🔌  | [Plugin Compatibility](#plugin-compatibility)                   |
-| 🆘  | [Help, Issues and Contribution](#help-issues-and-contribution)  |
+|   #   |     | Table of Content                                                |
+| :---: | :-: | :-------------------------------------------------------------- |
+| **1** | 📣  | [Statement](#statement)                                         |
+| **2** | 👟  | [Getting Started](#getting-started)                             |
+| **3** | ⚙️  | [Wordpress Backend Configuration](./WORDPRESS_CONFIGURATION.md) |
+| **4** | ⚛️  | [React Frontend Templates](./USE_TEMPLATES.md)                  |
+| **5** | ⚛️  | [React Core Components](./CORE_COMPONENTS.md)                   |
+| **6** | 🌐  | [Public API](./PUBLIC_API.md)                                   |
+| **7** | ⚛️  | [React Wordpress Data Hooks](./CORE_HOOKS.md)                   |
+| **8** | 🔌  | [Plugin Compatibility](#plugin-compatibility)                   |
+| **9** | 🆘  | [Help, Issues and Contribution](#help-issues-and-contribution)  |
 
 ## Statement
 
