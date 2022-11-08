@@ -16,8 +16,8 @@
 | **3** | ⚙️  | [Wordpress Backend Configuration](./WORDPRESS_CONFIGURATION.md) |
 | **4** | ⚛️  | [React Frontend Templates](./USE_TEMPLATES.md)                  |
 | **5** | ⚛️  | [React Core Components](./CORE_COMPONENTS.md)                   |
-| **6** | 🌐  | [Public API](./PUBLIC_API.md)                                   |
 | **7** | ⚛️  | [React Wordpress Data Hooks](./CORE_HOOKS.md)                   |
+| **6** | 🌐  | [Public API](./PUBLIC_API.md)                                   |
 | **8** | 🔌  | [Plugin Compatibility](#plugin-compatibility)                   |
 | **9** | 🆘  | [Help, Issues and Contribution](#help-issues-and-contribution)  |
 
