@@ -17,18 +17,6 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | :----- | :------------------------------ | ---------: |
 | `GET`  | `/wp-json/wpreact/v1/frontpage` |         NO |
 
-#### Data constraints
-
-```json
-{}
-```
-
-#### Data Example
-
-```json
-{}
-```
-
 #### Success Response
 
 | Status |  Code |
@@ -110,18 +98,6 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | Method | URL                         | Needs Auth |
 | :----- | :-------------------------- | ---------: |
 | `GET`  | `/wp-json/wpreact/v1/menus` |         NO |
-
-#### Data constraints
-
-```json
-{}
-```
-
-#### Data Example
-
-```json
-{}
-```
 
 #### Success Response
 
@@ -308,18 +284,6 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | Method | URL                              | Needs Auth |
 | :----- | :------------------------------- | ---------: |
 | `GET`  | `/wp-json/wpreact/v1/post-types` |         NO |
-
-#### Data constraints
-
-```json
-{}
-```
-
-#### Data Example
-
-```json
-{}
-```
 
 #### Success Response
 
