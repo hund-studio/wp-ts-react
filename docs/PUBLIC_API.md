@@ -24,7 +24,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | OK     | `200` |
 
 <details>
-<summary>Example `200` Response</summary>
+<summary>Example 200 Response</summary>
 
 ```json
 {
@@ -79,7 +79,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | `frontpage_not_found` | `404` |
 
 <details>
-<summary>Example `404` Response</summary>
+<summary>Example 404 Response</summary>
 
 ```json
 {
@@ -106,7 +106,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | OK     | `200` |
 
 <details>
-<summary>Example `200` Response</summary>
+<summary>Example 200 Response</summary>
 
 ```json
 {
@@ -292,7 +292,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | OK     | `200` |
 
 <details>
-<summary>Example `200` Response</summary>
+<summary>Example 200 Response</summary>
 
 ```json
 {[
@@ -490,22 +490,22 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Post Type
 
-| Method | URL                                                      | Needs Auth |
-| :----- | :------------------------------------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/post-type/<post-type>/<post-slug> ` |         NO |
+| Method | URL                                                    | Needs Auth |
+| :----- | :----------------------------------------------------- | ---------: |
+| `GET`  | `/wp-json/wpreact/v1/post-type/:post-type/:post-slug ` |         NO |
 
 #### Request Query Parameters
 
-| Property Name     | Value Type | Required | Description                                                                     |
-| :---------------- | :--------- | :------- | :------------------------------------------------------------------------------ |
-| `<taxonomy-slug>` | string[]   | false    | Use a valid taxonomy `slug` as object key and a string array of terms as values |
+| Property Name     | Value Type | Required | Description                                          |
+| :---------------- | :--------- | :------- | :--------------------------------------------------- |
+| `<taxonomy-slug>` | string[]   | false    | Filter Posts assigned to queried Taxonomy with Value |
 
 #### Request Query Parameters Example
 
 ```json
 {
-    tag: [dev, backend, code],
-    category: [uncategorized]
+  "tag": ["dev", "backend", "code"],
+  "category": ["uncategorized"]
 }
 ```
 
@@ -516,7 +516,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | OK     | `200` |
 
 <details>
-<summary>Example `200` Response</summary>
+<summary>Example 200 Response</summary>
 
 ```json
 [
@@ -592,3 +592,105 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | -      |    - |
 
 ## 🌐 Taxonomies
+
+| Method | URL                             | Needs Auth |
+| :----- | :------------------------------ | ---------: |
+| `GET`  | `/wp-json/wpreact/v1/frontpage` |         NO |
+
+#### Request Query Parameters
+
+| Property Name | Value Type | Required | Description                                      |
+| :------------ | :--------- | :------- | :----------------------------------------------- |
+| `post_type`   | string[]   | false    | Filter Taxonomies assigned to queried Post Types |
+
+#### Request Query Parameters Example
+
+```json
+{
+  "post_type": ["project"]
+}
+```
+
+#### Success Response
+
+| Status |  Code |
+| :----- | ----: |
+| OK     | `200` |
+
+<details>
+<summary>Example 200 Response</summary>
+
+```json
+[
+  {
+    "slug": "category",
+    "label": "Categories",
+    "available_in": ["page", "project"],
+    "terms": [
+      {
+        "term_id": 1,
+        "name": "Uncategorized",
+        "slug": "uncategorized",
+        "term_group": 0,
+        "term_taxonomy_id": 1,
+        "taxonomy": "category",
+        "description": "",
+        "parent": 0,
+        "count": 0,
+        "filter": "raw"
+      }
+    ]
+  },
+  {
+    "slug": "tag",
+    "label": "Tags",
+    "available_in": ["project"],
+    "terms": [
+      {
+        "term_id": 9,
+        "name": "backend",
+        "slug": "backend",
+        "term_group": 0,
+        "term_taxonomy_id": 9,
+        "taxonomy": "tag",
+        "description": "",
+        "parent": 0,
+        "count": 1,
+        "filter": "raw"
+      },
+      {
+        "term_id": 7,
+        "name": "dev",
+        "slug": "dev",
+        "term_group": 0,
+        "term_taxonomy_id": 7,
+        "taxonomy": "tag",
+        "description": "",
+        "parent": 0,
+        "count": 2,
+        "filter": "raw"
+      },
+      {
+        "term_id": 8,
+        "name": "frontend",
+        "slug": "frontend",
+        "term_group": 0,
+        "term_taxonomy_id": 8,
+        "taxonomy": "tag",
+        "description": "",
+        "parent": 0,
+        "count": 1,
+        "filter": "raw"
+      }
+    ]
+  },
+  {
+    "slug": "topic",
+    "label": "Topics",
+    "available_in": ["project"],
+    "terms": []
+  }
+]
+```
+
+</details>
