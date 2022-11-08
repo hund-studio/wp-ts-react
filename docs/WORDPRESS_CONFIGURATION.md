@@ -152,6 +152,8 @@ Available configuration:
 
 📍 API configuration files must be placed inside the `/theme/config/api` folder.
 
+### Create a new API endpoint
+
 API configuration files are the only ones that export a **Closure** and not an **Associative Array**. The exported function will be passed as a callback to an API endpoint available at:
 
 ```api
@@ -181,6 +183,8 @@ Custom templates are not related to the original WordPress templates system but 
 > ⚠️ When you assing a custom template to a specific post you loose the capability to delete it. If the targeted post does not exists a new Post Type with the given slug will be automatically created. This is required from the frontend to work.
 
 > ⚠️ If you want to delete a page targeted from a Custom Template you have to unlink it before, then delete the post.
+
+### Create a new Custom Template
 
 This is an example file that registers a `Special` Custom Template and assigns it to a `Project` with `/special` slug and to a `Page` with `/special` slug:
 
@@ -214,6 +218,8 @@ Available configuration:
 > ⚠️ **wp-ts-react** doeas not have a built-in way to create options pages but relies on ACF Custom Fields PRO. You must have it installed and active in order to make ACF Options Pages work.
 
 📍 Custom Template configuration files must be placed inside the `/theme/config/acf-options-pages` folder.
+
+### Create a new ACF Options Page
 
 This is an example file that registers a `Settings` ACF Options Pages:
 
