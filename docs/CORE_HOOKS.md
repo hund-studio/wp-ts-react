@@ -30,11 +30,11 @@ You can pass additional parameters to retrieve **Posts** filtered by **Taxonomy 
 
 ### Hook Available Parameters
 
-| Property Name     | Value Type  | Required | Default | Description                                          |
-| :---------------- | :---------- | :------- | :------ | :--------------------------------------------------- |
-| `relation`        | `AND \| OR` | false    | AND     | Relation of filter                                   |
-| `<taxonomy-slug>` | `string[]`  | false    | null    | Filter Posts assigned to queried Taxonomy with Value |
-| `post_type`       | `string`    | false    | current | Filter Posts assigned to queried Taxonomy with Value |
+| Property Name     | Value Type  | Required | Default | Description                                |
+| :---------------- | :---------- | :------- | :------ | :----------------------------------------- |
+| `relation`        | `AND \| OR` | false    | `AND`   | Relation of filter                         |
+| `<taxonomy-slug>` | `string[]`  | false    | -       | Filter by **Taxonomy** with **Term** value |
+| `post_type`       | `string`    | false    | current | Select a specific **Post Type**            |
 
 ## 🪝 useTaxonomies
 
