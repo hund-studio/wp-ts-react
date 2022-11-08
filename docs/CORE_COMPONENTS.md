@@ -2,9 +2,9 @@
 
 Here you find the list of the exported React Core Components.
 
-| Index             |
-| :---------------- |
-| [<Link />](#link) |
+| Index               |
+| :------------------ |
+| [\<Link /\>](#link) |
 
 ## \<Link /\>
 
