@@ -1,4 +1,8 @@
-# 📦 wp-ts-react
+# 📦 wp-ts-react 
+
+![wordpress](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=+&message=Wordpress&color=003c56)
+![typescript](https://img.shields.io/static/v1?logo=typescript&logoColor=white&label=+&message=Typescript&color=3178c6)
+![react](https://img.shields.io/static/v1?logo=react&logoColor=black&label=+&message=React&color=61dafb)
 
 ![license](https://img.shields.io/github/license/hund-studio/wp-ts-react)
 ![version](https://img.shields.io/github/package-json/v/hund-studio/wp-ts-react)
