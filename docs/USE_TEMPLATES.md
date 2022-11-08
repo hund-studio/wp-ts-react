@@ -221,4 +221,4 @@ To access WordPress data on frontend you just have to add `({data})` as a parame
 
 > ⚠️ If you have an active installation of ACF or ACF Pro `({data})` object will have an `acf` key containing all the custom data.
 
-For advanced usage checkout the [Core Hooks](./CORE_HOOKS.md) section of the documentation.
+For advanced usage check out the [Core Hooks](./CORE_HOOKS.md) and the [Public API](./PUBLIC_API.md) sections of the documentation.
