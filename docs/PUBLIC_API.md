@@ -9,7 +9,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | [Post Types](#🌐-post-types) | Fetch registered _Post Types_            |
 | [Post Type](#🌐-post-types)  | Fetch registered _Post Type_ by **slug** |
 | [Taxonomies](#🌐-taxonomies) | Fetch registered _Taxonomies_            |
-| [Taxonomy]()                 | Fetch registered _Taxonomy_ by **slug**  |
+| [Taxonomy](#🌐-taxonomy)     | Fetch registered _Taxonomy_ by **slug**  |
 
 ## 🌐 Frontpage
 
@@ -281,6 +281,8 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Post Types
 
+> ⚠️ Might be subject to changes
+
 | Method | URL                              | Requires Auth |
 | :----- | :------------------------------- | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/post-types` |         false |
@@ -490,6 +492,8 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Post Type
 
+> ⚠️ Might be subject to changes
+
 | Method | URL                                                    | Requires Auth |
 | :----- | :----------------------------------------------------- | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/post-type/:post-type/:post-slug ` |         false |
@@ -593,6 +597,8 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | -      |    - |
 
 ## 🌐 Taxonomies
+
+> ⚠️ Might be subject to changes
 
 | Method | URL                              | Requires Auth |
 | :----- | :------------------------------- | ------------: |
@@ -703,6 +709,8 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | -      |    - |
 
 ## 🌐 Taxonomy
+
+> ⚠️ Might be subject to changes
 
 | Method | URL                                            | Requires Auth |
 | :----- | :--------------------------------------------- | ------------: |
