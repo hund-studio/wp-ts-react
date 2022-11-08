@@ -4,14 +4,14 @@
 
 This is a list of all available public API endpoints exposed from **wp-ts-react**. You can use them to fetch data without using `@core/hooks`.
 
-| Endpoint                     | Description                              |
-| :--------------------------- | :--------------------------------------- |
-| [Frontpage](#🌐-frontpage)   | Fetch _Frontpage_ data                   |
-| [Menus](#🌐-menus)           | Fetch registered _Menus_ with items      |
-| [Post Types](#🌐-post-types) | Fetch registered _Post Types_            |
-| [Post Type](#🌐-post-types)  | Fetch registered _Post Type_ by **slug** |
-| [Taxonomies](#🌐-taxonomies) | Fetch registered _Taxonomies_            |
-| [Taxonomy](#🌐-taxonomy)     | Fetch registered _Taxonomy_ by **slug**  |
+| Endpoint                   | Description                              |
+| :------------------------- | :--------------------------------------- |
+| [Frontpage](#-frontpage)   | Fetch _Frontpage_ data                   |
+| [Menus](#-menus)           | Fetch registered _Menus_ with items      |
+| [Post Types](#-post-types) | Fetch registered _Post Types_            |
+| [Post Type](#-post-types)  | Fetch registered _Post Type_ by **slug** |
+| [Taxonomies](#-taxonomies) | Fetch registered _Taxonomies_            |
+| [Taxonomy](#-taxonomy)     | Fetch registered _Taxonomy_ by **slug**  |
 
 ## 🌐 Frontpage
 
