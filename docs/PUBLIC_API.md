@@ -21,7 +21,7 @@ Retrieve data of current Frontpage. To select/update the Frontpage value you mus
 | :----- | :------------------------------ | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/frontpage` |         false |
 
-#### Success Response
+### Success Response
 
 | Status |  Code |
 | :----- | ----: |
@@ -76,7 +76,7 @@ Retrieve data of current Frontpage. To select/update the Frontpage value you mus
 
 </details>
 
-#### Error Response
+### Error Response
 
 | Status                |  Code |
 | :-------------------- | ----: |
@@ -105,7 +105,7 @@ Retrieve the registered Menus and their assigned items. To create/update the con
 | :----- | :-------------------------- | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/menus` |         false |
 
-#### Success Response
+### Success Response
 
 | Status |  Code |
 | :----- | ----: |
@@ -279,7 +279,7 @@ Retrieve the registered Menus and their assigned items. To create/update the con
 
 </details>
 
-#### Error Response
+### Error Response
 
 | Status | Code |
 | :----- | ---: |
@@ -295,7 +295,7 @@ Retrieve the list of all registered Post Types.
 | :----- | :------------------------------- | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/post-types` |         false |
 
-#### Success Response
+### Success Response
 
 | Status |  Code |
 | :----- | ----: |
@@ -492,7 +492,7 @@ Retrieve the list of all registered Post Types.
 
 </details>
 
-#### Error Response
+### Error Response
 
 | Status | Code |
 | :----- | ---: |
@@ -508,14 +508,14 @@ Retrieve the data of a specific `post-slug` from a specific `post-type`.
 | :----- | :----------------------------------------------------- | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/post-type/:post-type/:post-slug ` |         false |
 
-#### Request Query Parameters
+### Request Query Parameters
 
 | Property Name     | Value Type  | Required | Description                                          |
 | :---------------- | :---------- | :------- | :--------------------------------------------------- |
 | `relation`        | `AND \| OR` | false    | Relation of filter                                   |
 | `<taxonomy-slug>` | `string[]`  | false    | Filter Posts assigned to queried Taxonomy with Value |
 
-#### Request Query Parameters Example
+### Request Query Parameters Example
 
 ```json
 {
@@ -524,7 +524,7 @@ Retrieve the data of a specific `post-slug` from a specific `post-type`.
 }
 ```
 
-#### Success Response
+### Success Response
 
 | Status |  Code |
 | :----- | ----: |
@@ -600,7 +600,7 @@ Retrieve the data of a specific `post-slug` from a specific `post-type`.
 
 </details>
 
-#### Error Response
+### Error Response
 
 | Status | Code |
 | :----- | ---: |
@@ -617,13 +617,13 @@ You can filter **Taxonomies** assigned to a list of **Post Types**.
 | :----- | :------------------------------- | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/taxonomies` |         false |
 
-#### Request Query Parameters
+### Request Query Parameters
 
 | Property Name | Value Type | Required | Description                                      |
 | :------------ | :--------- | :------- | :----------------------------------------------- |
 | `post_type`   | `string[]` | false    | Filter Taxonomies assigned to queried Post Types |
 
-#### Request Query Parameters Example
+### Request Query Parameters Example
 
 ```json
 {
@@ -631,7 +631,7 @@ You can filter **Taxonomies** assigned to a list of **Post Types**.
 }
 ```
 
-#### Success Response
+### Success Response
 
 | Status |  Code |
 | :----- | ----: |
@@ -715,7 +715,7 @@ You can filter **Taxonomies** assigned to a list of **Post Types**.
 
 </details>
 
-#### Error Response
+### Error Response
 
 | Status | Code |
 | :----- | ---: |
@@ -732,13 +732,13 @@ You can filter **Posts** based on **Terms** value.
 | :----- | :--------------------------------------------- | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/taxonomy/:taxonomy-slug ` |         false |
 
-#### Request Query Parameters
+### Request Query Parameters
 
 | Property Name | Value Type | Required | Description                                          |
 | :------------ | :--------- | :------- | :--------------------------------------------------- |
 | `where`       | `string[]` | false    | Filter Posts assigned to queried Taxonomy with Value |
 
-#### Request Query Parameters Example
+### Request Query Parameters Example
 
 ```json
 {
@@ -746,7 +746,7 @@ You can filter **Posts** based on **Terms** value.
 }
 ```
 
-#### Success Response
+### Success Response
 
 | Status |  Code |
 | :----- | ----: |
@@ -822,7 +822,7 @@ You can filter **Posts** based on **Terms** value.
 
 </details>
 
-#### Error Response
+### Error Response
 
 | Status | Code |
 | :----- | ---: |
