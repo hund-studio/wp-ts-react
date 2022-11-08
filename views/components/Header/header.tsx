@@ -4,7 +4,7 @@ import Nav from "../Nav/nav";
 const Header: FC = () => {
 	return (
 		<header>
-			<Nav menuId='primary-menu' />
+			<Nav menuId='primary' />
 		</header>
 	);
 };

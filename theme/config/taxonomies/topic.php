@@ -1,8 +1,8 @@
 <?php
 
 return [
-	"singular"  		=> "Session",
-	"plural"    		=> "Sessions",
+	"singular"  		=> "Topic",
+	"plural"    		=> "Topics",
 	"targets" 			=> ['project'],
 	"hierarchical"		=> false,
 	"rewrite"   		=> false,
