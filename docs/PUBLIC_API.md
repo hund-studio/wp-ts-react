@@ -13,6 +13,8 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Frontpage
 
+Retrieve data of current Frontpage. To select/update the Frontpage value you must log in to your WordPress Admin and goes to `Settings > Reading > Choose Frontpage`.
+
 | Method | URL                             | Requires Auth |
 | :----- | :------------------------------ | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/frontpage` |         false |
@@ -94,6 +96,8 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 </details>
 
 ## 🌐 Menus
+
+Retrieve the registered Menus and their assigned items. To create/update the content of a registered menu you must log in to your WordPress Admin and goes to `Appearance > Menus`.
 
 | Method | URL                         | Requires Auth |
 | :----- | :-------------------------- | ------------: |
@@ -282,6 +286,8 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 ## 🌐 Post Types
 
 > ⚠️ Might be subject to changes
+
+Retrieve the list of all registered Post Types.
 
 | Method | URL                              | Requires Auth |
 | :----- | :------------------------------- | ------------: |
@@ -494,6 +500,8 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 > ⚠️ Might be subject to changes
 
+Retrieve the data of a specific `post-slug` from a specific `post-type`.
+
 | Method | URL                                                    | Requires Auth |
 | :----- | :----------------------------------------------------- | ------------: |
 | `GET`  | `/wp-json/wpreact/v1/post-type/:post-type/:post-slug ` |         false |
@@ -599,6 +607,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 ## 🌐 Taxonomies
 
 > ⚠️ Might be subject to changes
+
+Retrieve the list of all registered **Taxonomies** and their inserted **Terms**.
+You can filter **Taxonomies** assigned to a list of **Post Types**.
 
 | Method | URL                              | Requires Auth |
 | :----- | :------------------------------- | ------------: |
@@ -711,6 +722,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 ## 🌐 Taxonomy
 
 > ⚠️ Might be subject to changes
+
+Retrieve a list of all **Posts** assigned to a specific **Taxonomy**.
+You can filter **Posts** based on **Terms** value.
 
 | Method | URL                                            | Requires Auth |
 | :----- | :--------------------------------------------- | ------------: |
