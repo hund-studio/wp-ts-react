@@ -534,7 +534,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ```json
 {
-    [<taxonomy-slug>: <taxonomy-term>[]]
+    <taxonomy-slug>: [<taxonomy-term>]
 }
 ```
 
