@@ -30,11 +30,11 @@ This is an example file that registers a `Project` Custom Post Type:
 <?php
 // 📄 /theme/config/post-types/project.php
 return [
-	"singular" => "Project",
-	"plural" => "Projects",
-	"archive" => true,
-	"rewrite" => "project",
-	"vanilla" => [],
+  "singular" => "Project",
+  "plural" => "Projects",
+  "archive" => true,
+  "rewrite" => "project",
+  "vanilla" => [],
 ];
 ```
 
@@ -56,8 +56,8 @@ This is an example file that updates the `Page` Default Post Type:
 <?php
 // 📄 /theme/config/post-types/page.php
 return [
-	"add" => [],
-	"remove" => ["editor"],
+  "add" => [],
+  "remove" => ["editor"],
 ];
 ```
 
@@ -82,14 +82,14 @@ This is an example file that registers a `Topic` Custom Taxonomy:
 <?php
 // 📄 /theme/config/taxonomies/topic.php
 return [
-	"singular" => "Topic",
-	"plural" => "Topics",
-	"targets" => ["project"],
-	"hierarchical" => false,
-	"rewrite" => false,
-	"show_ui" => true,
-	"show_admin_column" => true,
-	"vanilla" => [],
+  "singular" => "Topic",
+  "plural" => "Topics",
+  "targets" => ["project"],
+  "hierarchical" => false,
+  "rewrite" => false,
+  "show_ui" => true,
+  "show_admin_column" => true,
+  "vanilla" => [],
 ];
 ```
 
@@ -100,14 +100,14 @@ This is an example file that updates the `Tag` Default Taxonomy:
 <?php
 // 📄 /theme/config/taxonomies/tag.php
 return [
-	"singular" => "Tag",
-	"plural" => "Tags",
-	"targets" => ["project"],
-	"hierarchical" => false,
-	"rewrite" => false,
-	"show_ui" => true,
-	"show_admin_column" => true,
-	"vanilla" => [],
+  "singular" => "Tag",
+  "plural" => "Tags",
+  "targets" => ["project"],
+  "hierarchical" => false,
+  "rewrite" => false,
+  "show_ui" => true,
+  "show_admin_column" => true,
+  "vanilla" => [],
 ];
 ```
 
@@ -136,7 +136,7 @@ This is an example file that registers a `Primary` Menu:
 <?php
 // 📄 /theme/config/menus/primary.php
 return [
-	"label" => "Primary Menu",
+  "label" => "Primary Menu",
 ];
 ```
 
@@ -166,7 +166,7 @@ This is an example file that registers a `Time` API endpoint:
 <?php
 // 📄 /theme/config/api/time.php
 return function (\WP_REST_Request $request) {
-	return new \WP_REST_Response(date("Y-m-d H:i:s"), 200);
+  return new \WP_REST_Response(date("Y-m-d H:i:s"), 200);
 };
 ```
 
@@ -192,17 +192,17 @@ This is an example file that registers a `Special` Custom Template and assigns i
 <?php
 // 📄 /theme/config/custom-templates/special.php
 return [
-	"name" => "Special Template",
-	"targets" => [
-		[
-			"postType" => "project",
-			"slug" => "special",
-		],
-		[
-			"postType" => "page",
-			"slug" => "special",
-		],
-	],
+  "name" => "Special Template",
+  "targets" => [
+    [
+      "postType" => "project",
+      "slug" => "special",
+    ],
+    [
+      "postType" => "page",
+      "slug" => "special",
+    ],
+  ],
 ];
 ```
 
@@ -227,23 +227,23 @@ This is an example file that registers a `Settings` ACF Options Pages:
 <?php
 // 📄 /theme/config/acf-options-pages/settings.php
 return [
-	"page" => [
-		"page_title" => "Settings",
-		"menu_title" => "Settings",
-		"capability" => "edit_posts",
-		"redirect" => true,
-		"position" => "20.1",
-	],
-	"subpages" => [
-		[
-			"page_title" => "Footer Settings",
-			"menu_title" => "Footer",
-		],
-		[
-			"page_title" => "Other Settings",
-			"menu_title" => "Other",
-		],
-	],
+  "page" => [
+    "page_title" => "Settings",
+    "menu_title" => "Settings",
+    "capability" => "edit_posts",
+    "redirect" => true,
+    "position" => "20.1",
+  ],
+  "subpages" => [
+    [
+      "page_title" => "Footer Settings",
+      "menu_title" => "Footer",
+    ],
+    [
+      "page_title" => "Other Settings",
+      "menu_title" => "Other",
+    ],
+  ],
 ];
 ```
 

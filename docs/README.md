@@ -1,24 +1,24 @@
 # 📦 wp-ts-react
 
-![wordPress](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=+&message=Wordpress&color=003c56)
-![typescript](https://img.shields.io/static/v1?logo=typescript&logoColor=white&label=+&message=Typescript&color=3178c6)
-![react](https://img.shields.io/static/v1?logo=react&logoColor=black&label=+&message=React&color=61dafb)
+![WordPress](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=+&message=Wordpress&color=003c56)
+![Typescript](https://img.shields.io/static/v1?logo=typescript&logoColor=white&label=+&message=Typescript&color=3178c6)
+![React](https://img.shields.io/static/v1?logo=react&logoColor=black&label=+&message=React&color=61dafb)
 
 ![license](https://img.shields.io/github/license/hund-studio/wp-ts-react)
 ![version](https://img.shields.io/github/package-json/v/hund-studio/wp-ts-react)
 
-**wp-ts-react** is a WordPress theme preconfigured with a Typescript + React system which allows you to handle a minimal WordPress configuration and a React frontend development workflow in one repository.
+**wp-ts-react** is a WordPress theme starter preconfigured with a Typescript + React frontend which allows developers to handle WordPress configuration and a React frontend development from one repository.
 
-|     | Index                                                          |
-| :-: | :------------------------------------------------------------- |
-|     | [Statement](#statement)                                        |
-| 👟  | [Getting Started](#getting-started)                            |
-|     | [Wordpress Configuration](./WORDPRESS_CONFIGURATION.md)        |
-|     | [Work with React frontend templates](./USE_TEMPLATES.md)       |
-| 🔜  | [Available Core Components](./CORE_COMPONENTS.md)              |
-| 🔜  | [Available Core Hooks](./CORE_HOOKS.md)                        |
-|     | [Plugin Compatibility](#plugin-compatibility)                  |
-| 🆘  | [Help, Issues and Contribution](#help-issues-and-contribution) |
+|     | Index                                                           |
+| :-: | :-------------------------------------------------------------- |
+|     | [Statement](#statement)                                         |
+| 👟  | [Getting Started](#getting-started)                             |
+| ⚙️  | [Wordpress Backend Configuration](./WORDPRESS_CONFIGURATION.md) |
+| 🌈  | [React Frontend Templates](./USE_TEMPLATES.md)                  |
+| 🌈  | [React Core Components](./CORE_COMPONENTS.md)                   |
+| 🌈  | [React Wordpress Data Hooks](./CORE_HOOKS.md)                   |
+|     | [Plugin Compatibility](#plugin-compatibility)                   |
+| 🆘  | [Help, Issues and Contribution](#help-issues-and-contribution)  |
 
 ## Statement
 
