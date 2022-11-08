@@ -11,7 +11,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | [Taxonomies]()            | Fetch registered _Taxonomies_            |
 | [Taxonomy]()              | Fetch registered _Taxonomy_ by **slug**  |
 
-## Frontpage
+## 🌐 Frontpage
 
 | Method | URL                             | Needs Auth |
 | :----- | :------------------------------ | ---------: |
@@ -105,7 +105,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 </details>
 
-## Menus
+## 🌐 Menus
 
 | Method | URL                         | Needs Auth |
 | :----- | :-------------------------- | ---------: |
@@ -303,7 +303,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | :----- | ---: |
 | -      |    - |
 
-## Post Types
+## 🌐 Post Types
 
 | Method | URL                              | Needs Auth |
 | :----- | :------------------------------- | ---------: |
@@ -524,7 +524,7 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 | :----- | ---: |
 | -      |    - |
 
-## Post Type
+## 🌐 Post Type
 
 | Method | URL                                                      | Needs Auth |
 | :----- | :------------------------------------------------------- | ---------: |
