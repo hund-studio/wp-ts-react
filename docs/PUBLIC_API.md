@@ -13,9 +13,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Frontpage
 
-| Method | URL                             | Needs Auth |
-| :----- | :------------------------------ | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/frontpage` |      false |
+| Method | URL                             | Requires Auth |
+| :----- | :------------------------------ | ------------: |
+| `GET`  | `/wp-json/wpreact/v1/frontpage` |         false |
 
 #### Success Response
 
@@ -95,9 +95,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Menus
 
-| Method | URL                         | Needs Auth |
-| :----- | :-------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/menus` |      false |
+| Method | URL                         | Requires Auth |
+| :----- | :-------------------------- | ------------: |
+| `GET`  | `/wp-json/wpreact/v1/menus` |         false |
 
 #### Success Response
 
@@ -281,9 +281,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Post Types
 
-| Method | URL                              | Needs Auth |
-| :----- | :------------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/post-types` |      false |
+| Method | URL                              | Requires Auth |
+| :----- | :------------------------------- | ------------: |
+| `GET`  | `/wp-json/wpreact/v1/post-types` |         false |
 
 #### Success Response
 
@@ -490,9 +490,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Post Type
 
-| Method | URL                                                    | Needs Auth |
-| :----- | :----------------------------------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/post-type/:post-type/:post-slug ` |      false |
+| Method | URL                                                    | Requires Auth |
+| :----- | :----------------------------------------------------- | ------------: |
+| `GET`  | `/wp-json/wpreact/v1/post-type/:post-type/:post-slug ` |         false |
 
 #### Request Query Parameters
 
@@ -594,9 +594,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Taxonomies
 
-| Method | URL                              | Needs Auth |
-| :----- | :------------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/taxonomies` |      false |
+| Method | URL                              | Requires Auth |
+| :----- | :------------------------------- | ------------: |
+| `GET`  | `/wp-json/wpreact/v1/taxonomies` |         false |
 
 #### Request Query Parameters
 
@@ -704,9 +704,9 @@ This is a list of all available public API endpoints exposed from **wp-ts-react*
 
 ## 🌐 Taxonomy
 
-| Method | URL                                            | Needs Auth |
-| :----- | :--------------------------------------------- | ---------: |
-| `GET`  | `/wp-json/wpreact/v1/taxonomy/:taxonomy-slug ` |      false |
+| Method | URL                                            | Requires Auth |
+| :----- | :--------------------------------------------- | ------------: |
+| `GET`  | `/wp-json/wpreact/v1/taxonomy/:taxonomy-slug ` |         false |
 
 #### Request Query Parameters
 
