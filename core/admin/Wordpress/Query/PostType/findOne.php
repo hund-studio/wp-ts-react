@@ -6,7 +6,10 @@ use WPReact\Helpers;
 
 function findOne(string $label, string $slug)
 {
-    $args = ['post_type' => $label, 'name' => $slug];
+    $args = [
+        'post_type' => $label,
+        'name' => $slug
+    ];
     $query = new \WP_Query($args);
 
     if (!$query->have_posts())
@@ -15,12 +18,17 @@ function findOne(string $label, string $slug)
     $post = $query->get_posts()[0];
 
     /**
-     * Add acf to post
+     * Plugin area
      */
+
+    /* [ENHANCE] Add URL property */
+    $post->url = Helpers::makeRelativeUrl(get_permalink($post->ID));
+
+    /* [ACF] add acf to post */
     if (function_exists('get_fields'))
         $post->acf = get_fields($post->ID);
-    $post->url = get_permalink($post->ID);
 
+    /* [ACF] Do the same for nested relationships */
     function iterate(&$array)
     {
         foreach ($array as $key => $item) {
@@ -35,16 +43,23 @@ function findOne(string $label, string $slug)
             }
         }
     }
+
+    /* [ACF] iterate post relationships */
     if (is_array($post->acf))
-        iterate($post->acf); // add support for nested relationship acf inputs
+        iterate($post->acf);
 
-
-    /**
-     * retrieve rankmat seo post info.
-     */
+    /* [RANKMATH] fetch data */
     $seoRequest = new \WP_REST_Request('GET', '/rankmath/v1/getHead');
-    $seoRequest->set_query_params(['url' => Helpers::makeRelativeUrl(get_permalink($post->ID))]);
+    $seoRequest->set_query_params([
+        'url' => Helpers::makeRelativeUrl(get_permalink($post->ID))
+    ]);
     $post->seo = rest_do_request($seoRequest);
+
+    /* [GRIDDER] add gridder to post */
+    if (function_exists('get_laygrid'))
+        $post->laygrid = get_laygrid($post->ID);
+
+    /** Plugin end */
 
     return $post;
 }

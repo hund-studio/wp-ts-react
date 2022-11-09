@@ -31,5 +31,13 @@ final class Config extends Singleton
             require_once "$actionsPath/disableCorsSecurityChecks.php";
             require_once "$actionsPath/setTimeAsCachedVersion.php";
         }
+
+        /**
+         * Plugin area
+         */
+        if (function_exists('get_laygrid')) {
+            require_once "$actionsPath/addLaygridScripts.php";
+        }
+        /** Plugin end */
     }
 }

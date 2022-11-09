@@ -34,14 +34,17 @@ function findMany(string $label, ?array $whereTaxonomy = null, ?string $whereTax
         return [];
 
     $posts = $query->get_posts();
+
     $posts = array_map(function ($post) {
+        /* [ENHANCE] Add URL property */
         $post->url = Helpers::makeRelativeUrl(get_permalink($post->ID));
 
+        /* [ACF] add acf to post */
         if (function_exists('get_fields'))
             $post->acf = get_fields($post->ID);
 
         return $post;
-    }, $posts); // todo: this should be something with decoration pattern o similar
+    }, $posts);
 
     return  $posts;
 }
