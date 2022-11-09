@@ -2,9 +2,10 @@
 
 Here you find the list of the exported React Core Components.
 
-| Index               |
-| :------------------ |
-| [\<Link /\>](#link) |
+| Index                     |
+| :------------------------ |
+| [\<Link /\>](#link)       |
+| [\<Laygrid /\>](#laygrid) |
 
 ## \<Link /\>
 
@@ -35,3 +36,23 @@ const Link: FC<LinkProps> = ({ to, ...props }) => {
 
 export { Link };
 ```
+
+## \<Laygrid\>
+
+The `<Laygrid>` component render the current queryed Grid. In order to use it you must have the Laygridder plugin installed and active. You can import it from:
+
+```typescript
+import { Laygrid } from "@core/Laygrid";
+```
+
+The `<Laygrid>` component implements the following PropsInterface:
+
+```typescript
+interface LaygridProps {
+  data?: string;
+}
+```
+
+| Property Name | Value Type | Required | Default                  | Description                                               |
+| :------------ | :--------- | :------- | :----------------------- | :-------------------------------------------------------- |
+| `data`        | `string`   | false    | current queryed resource | html string value generated from `get_laygrid()` function |
