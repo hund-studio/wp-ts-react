@@ -1,6 +1,11 @@
 {
-	"namespaces": {
-		"wp": "wp-json",
-		"wpreact": "wpreact/v1"
-	}
+  "base": "wp-json",
+  "wp": {
+    "namespace": "wp",
+    "version": "v2"
+  },
+  "wpreact": {
+    "namespace": "wpreact",
+    "version": "v1"
+  }
 }
