@@ -25,9 +25,25 @@ add_action("init", function () use ($appConfig) {
       }, iterator_to_array($postTypesIterator))
     ),
     [
-      "frontpage" => [
-        Helpers::makeFullUrl("/") => Helpers::makeFullUrl("frontpage"),
-      ],
+      "frontpage" => array_merge(
+        ...array_map(
+          fn($apiPath) => [
+            $apiPath["url"] => $apiPath["api"],
+          ],
+          array_map(
+            fn($lang) => [
+              "url" => Helpers::makeFullUrl($lang, "/"),
+              "api" => Helpers::makeFullUrl(
+                $lang,
+                Config::get("baseUrl"),
+                Config::get("restNamespace"),
+                "frontpage"
+              ),
+            ],
+            ["", ...Config::get("langs")]
+          )
+        )
+      ),
     ]
   );
 

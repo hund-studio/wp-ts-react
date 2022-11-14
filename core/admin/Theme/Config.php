@@ -28,6 +28,7 @@ final class Config extends SingletonWithOptions
     "namespace" => "wpreact",
     "baseUrl" => "wp-json",
     "langs" => [],
+    "fallbackLang" => null,
   ];
 
   private static Collection $loaders;
@@ -54,19 +55,24 @@ final class Config extends SingletonWithOptions
     $appConfigRawContent = file_get_contents($appConfigPath);
     $appConfig = json_decode($appConfigRawContent, true);
 
+    /**
+     * Config setup
+     */
+
     $themeArgs = [
       "dir" => $dir,
       "uri" => $uri,
       "baseUrl" => Helpers::trimSlashes($apiConfig["base"]),
       "namespace" => Helpers::trimSlashes($apiConfig["wpreact"]["namespace"]),
-      "restNamespace" => Helpers::trimSlashes(
-        Helpers::makeFullUrl(
-          $apiConfig["wpreact"]["namespace"],
-          $apiConfig["wpreact"]["version"]
-        )
-      ),
       "langs" => [],
     ];
+
+    $themeArgs["restNamespace"] = Helpers::trimSlashes(
+      Helpers::makeFullUrl(
+        $themeArgs["namespace"],
+        $apiConfig["wpreact"]["version"]
+      )
+    );
 
     /**
      * PLUGIN area
@@ -74,7 +80,10 @@ final class Config extends SingletonWithOptions
 
     /** [qTranslate] */
     if (function_exists("qtranxf_getSortedLanguages")) {
+      global $q_config;
+
       $themeArgs["langs"] = qtranxf_getSortedLanguages();
+      $themeArgs["fallbackLang"] = $q_config["default_language"];
     }
     /** [qTranslate] end */
 

@@ -159,29 +159,57 @@ final class PostType extends Entity implements Loadable
 
     $isPage = $this->WP_postType->name === "page";
 
-    $singlePostTypeApiPath = [
-      "url" => $isPage
-        ? Helpers::makeFullUrl(":slug")
-        : Helpers::makeFullUrl($this->singlePath, ":slug"),
-      "api" => Helpers::makeFullUrl("post-type", $this->singlePath, "{slug}"),
-    ];
+    $singlePostTypeApiPaths = array_map(
+      fn($lang) => [
+        "url" => $isPage
+          ? Helpers::makeFullUrl($lang, ":slug")
+          : Helpers::makeFullUrl($lang, $this->singlePath, ":slug"),
+        "api" => Helpers::makeFullUrl(
+          $lang,
+          Config::get("baseUrl"),
+          Config::get("restNamespace"),
+          "post-type",
+          $this->singlePath,
+          "{slug}"
+        ),
+      ],
+      ["", ...Config::get("langs")]
+    );
 
     $pattern = [
-      "single" => [
-        $singlePostTypeApiPath["url"] => $singlePostTypeApiPath["api"],
-      ],
-      "archive" => [],
+      "single" => array_merge(
+        ...array_map(
+          fn($singlePostTypeApiPath) => [
+            $singlePostTypeApiPath["url"] => $singlePostTypeApiPath["api"],
+          ],
+          $singlePostTypeApiPaths
+        )
+      ),
     ];
 
     if ($this->archivePath) {
-      $archivePostTypeApiPath = [
-        "url" => Helpers::makeFullUrl($this->archivePath),
-        "api" => Helpers::makeFullUrl("post-type", $this->archivePath),
-      ];
+      $archivePostTypeApiPaths = array_map(
+        fn($lang) => [
+          "url" => Helpers::makeFullUrl($lang, $this->archivePath),
+          "api" => Helpers::makeFullUrl(
+            $lang,
+            Config::get("baseUrl"),
+            Config::get("restNamespace"),
+            "post-type",
+            $this->archivePath
+          ),
+        ],
+        ["", ...Config::get("langs")]
+      );
 
-      $pattern["archive"] = [
-        $archivePostTypeApiPath["url"] => $archivePostTypeApiPath["api"],
-      ];
+      $pattern["archive"] = array_merge(
+        ...array_map(
+          fn($archivePostTypeApiPath) => [
+            $archivePostTypeApiPath["url"] => $archivePostTypeApiPath["api"],
+          ],
+          $archivePostTypeApiPaths
+        )
+      );
     }
 
     return $pattern;

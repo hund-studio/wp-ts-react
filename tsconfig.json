@@ -1,37 +1,38 @@
 {
-	"compilerOptions": {
-		// transpilation settings
-		"jsx": "react-jsx",
-		"lib": ["ESNext", "DOM"],
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"target": "ESNext",
+  "compilerOptions": {
+    // transpilation settings
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ESNext",
 
-		// dev tools
-		"sourceMap": true,
+    // dev tools
+    "sourceMap": true,
 
-		// features configuration
-		"esModuleInterop": true,
-		"noImplicitAny": true,
-		"resolveJsonModule": true,
-		"strict": true,
+    // features configuration
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "strict": true,
 
-		// filesystem
-		"outDir": "./public/",
-		"baseUrl": "./",
-		"paths": {
-			"@config/*": ["./config/*"],
-			"@views/*": ["./views/*"],
-			"@core/Link": ["./core/front/components/Link"],
-			"@core/Laygrid": ["./core/front/components/Laygrid"],
-			"@core/page": ["./core/front/page"],
-			"@core/hooks": ["./core/front/hooks/data"]
-		}
-	},
-	// enable top level await on webpack
-	"ts-node": {
-		"compilerOptions": {
-			"module": "CommonJS"
-		}
-	}
+    // filesystem
+    "outDir": "./public/",
+    "baseUrl": "./",
+    "paths": {
+      "@config/*": ["./config/*"],
+      "@core/hooks": ["./core/front/hooks/data"],
+      "@core/Laygrid": ["./core/front/components/Laygrid"],
+      "@core/Link": ["./core/front/components/Link"],
+      "@core/page": ["./core/front/page"],
+      "@translations/*": ["./translations/*"],
+      "@views/*": ["./views/*"]
+    }
+  },
+  // enable top level await on webpack
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }

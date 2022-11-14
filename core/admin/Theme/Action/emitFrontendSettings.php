@@ -6,9 +6,12 @@ use WPReact\Theme\Config;
 
 add_action("init", function () use ($appConfig) {
   $settings = [
-    "apiUrl" => Helpers::makeFullUrl("wp-json", Config::get("restNamespace")),
-    "restNamespace" => Config::get("restNamespace"),
-    "namespace" => Config::get("namespace"),
+    "apiUrl" => Helpers::makeFullUrl(
+      Config::get("baseUrl"),
+      Config::get("restNamespace")
+    ),
+    "langs" => Config::get("langs"),
+    "fallbackLang" => Config::get("fallbackLang"),
   ];
 
   new ApiRoute("GET", "/settings", function () use ($settings) {

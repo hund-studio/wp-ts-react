@@ -2,5 +2,10 @@
 
 return [
   "name" => "Special Template",
-  "targets" => [],
+  "targets" => [
+    [
+      "postType" => "page",
+      "slug" => "special",
+    ],
+  ],
 ];

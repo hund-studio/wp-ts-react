@@ -33,12 +33,14 @@ class Helpers
 
   public static function joinPathParts(string ...$parts)
   {
-    return self::removeMultipleSlashes(
-      implode(
-        "/",
-        array_map(function ($part) {
-          return trim($part, "/");
-        }, $parts)
+    return self::trimSlashes(
+      self::removeMultipleSlashes(
+        implode(
+          "/",
+          array_map(function ($part) {
+            return trim($part, "/");
+          }, $parts)
+        )
       )
     );
   }
