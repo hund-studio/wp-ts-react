@@ -9,11 +9,17 @@ import { createErrorString } from "./utils/createErrorString";
 import { I18nextProvider } from "react-i18next";
 import { i18n } from "./utils/i18n";
 
+const defaultAppConfig = {
+	resetScroll: true,
+};
+
 try {
 	const { default: _App } = await import("@views/pages/_app");
 
+	_App.config = { ...defaultAppConfig, ..._App.config };
+
 	const Wrapper: FC<PropsWithChildren> = ({ children }) => {
-		useScrollTop();
+		if (_App.config?.resetScroll) useScrollTop();
 		return <Fragment>{children}</Fragment>;
 	};
 
