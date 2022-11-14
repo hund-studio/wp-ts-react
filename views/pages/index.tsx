@@ -1,3 +1,4 @@
+import { T } from "@core/lang/T";
 import { Link } from "@core/Link";
 import { MenuOnBottom } from "@views/layouts/MenuOnBottom/menuOnBottom";
 import { useTranslation } from "react-i18next";
@@ -7,7 +8,9 @@ const Index: Page = ({ data }: any) => {
 
 	return (
 		<main>
-			<h1>{t("frontpage")}</h1>
+			<h1>
+				<T tkey={"homepage"}>Homepage</T>
+			</h1>
 			<p>
 				This is a text with a <Link to='https://hund.studio'>link</Link>
 			</p>

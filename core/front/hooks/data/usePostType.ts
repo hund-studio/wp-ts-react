@@ -3,14 +3,29 @@ import { context } from "./../../context/data";
 import { fetcher } from "../../utils/fetcher";
 import { useContext } from "react";
 import useSWR from "swr";
+import { useTranslation } from "react-i18next";
 
 function usePostType(params: AxiosRequestConfig["params"] = undefined) {
+	const { i18n } = useTranslation();
+
+	const lang = i18n.language;
+	const defaultLang = Array.isArray(i18n.options.fallbackLng)
+		? i18n.options.fallbackLng
+		: []; // todo should be useLang hook
+
 	const { value } = useContext(context);
 
 	const { post_type, ...rest } = params;
 
-	const { data, error } = useSWR(
-		[`/post-type/${post_type || value?.post_type || ""}`, rest],
+	const url = `post-type/${post_type || value?.post_type || ""}`;
+
+	const { data, error } = useSWR<any>(
+		[
+			lang && !defaultLang.includes(lang)
+				? `/${i18n.language}/${API_NAMESPACE}/${url}`
+				: `/${API_NAMESPACE}/${url}`,
+			rest,
+		],
 		fetcher
 	);
 
