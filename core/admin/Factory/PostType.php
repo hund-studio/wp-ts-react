@@ -160,12 +160,12 @@ final class PostType extends Entity implements Loadable
     $isPage = $this->WP_postType->name === "page";
 
     $singlePostTypeApiPaths = array_map(
-      fn($lang) => [
+      fn ($lang) => [
         "url" => $isPage
           ? Helpers::makeFullUrl($lang, ":slug")
           : Helpers::makeFullUrl($lang, $this->singlePath, ":slug"),
         "api" => Helpers::makeFullUrl(
-          $lang,
+          $lang !== Config::get('fallbackLang') ? $lang : '',
           Config::get("baseUrl"),
           Config::get("restNamespace"),
           "post-type",
@@ -179,7 +179,7 @@ final class PostType extends Entity implements Loadable
     $pattern = [
       "single" => array_merge(
         ...array_map(
-          fn($singlePostTypeApiPath) => [
+          fn ($singlePostTypeApiPath) => [
             $singlePostTypeApiPath["url"] => $singlePostTypeApiPath["api"],
           ],
           $singlePostTypeApiPaths
@@ -189,10 +189,10 @@ final class PostType extends Entity implements Loadable
 
     if ($this->archivePath) {
       $archivePostTypeApiPaths = array_map(
-        fn($lang) => [
+        fn ($lang) => [
           "url" => Helpers::makeFullUrl($lang, $this->archivePath),
           "api" => Helpers::makeFullUrl(
-            $lang,
+            $lang !== Config::get('fallbackLang') ? $lang : '',
             Config::get("baseUrl"),
             Config::get("restNamespace"),
             "post-type",
@@ -204,7 +204,7 @@ final class PostType extends Entity implements Loadable
 
       $pattern["archive"] = array_merge(
         ...array_map(
-          fn($archivePostTypeApiPath) => [
+          fn ($archivePostTypeApiPath) => [
             $archivePostTypeApiPath["url"] => $archivePostTypeApiPath["api"],
           ],
           $archivePostTypeApiPaths

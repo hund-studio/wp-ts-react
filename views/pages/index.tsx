@@ -9,7 +9,7 @@ const Index: Page = ({ data }: any) => {
 	return (
 		<main>
 			<h1>
-				<T tkey={"homepage"}>Homepage</T>
+				<T tkey={"frontpage"}>Homepage</T>
 			</h1>
 			<p>
 				This is a text with a <Link to='https://hund.studio'>link</Link>

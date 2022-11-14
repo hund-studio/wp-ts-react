@@ -1,13 +1,20 @@
 import { context } from "./../../context/data";
 import { fetcher } from "./../../utils/fetcher";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import useSWR from "swr";
+import { BareFetcher, PublicConfiguration } from "swr/dist/types";
 
-function useEndpoint(endpoint: string) {
-	const { set } = useContext(context);
+type onSuccessCallback =
+	| ((
+			data: any,
+			key: string,
+			config: Readonly<PublicConfiguration<any, any, BareFetcher<any>>>
+	  ) => void)
+	| undefined;
 
+function useEndpoint(endpoint: string, onSuccess: onSuccessCallback) {
 	const { data, error } = useSWR(endpoint, fetcher, {
-		onSuccess: (data) => set(data),
+		onSuccess,
 	});
 
 	return {

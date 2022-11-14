@@ -69,7 +69,7 @@ final class CustomTemplate extends Entity implements Loadable
         $isPage = $targetEntity->getWpPostType()->name === "page";
 
         $customTemplateApiPaths = array_map(
-          fn($lang) => [
+          fn ($lang) => [
             "url" => $isPage
               ? Helpers::makeFullUrl($lang, $target["slug"])
               : Helpers::makeFullUrl(
@@ -78,7 +78,7 @@ final class CustomTemplate extends Entity implements Loadable
                 $target["slug"]
               ),
             "api" => Helpers::makeFullUrl(
-              $lang,
+              $lang !== Config::get('fallbackLang') ? $lang : '',
               Config::get("baseUrl"),
               Config::get("restNamespace"),
               "post-type",
@@ -91,7 +91,7 @@ final class CustomTemplate extends Entity implements Loadable
 
         $pattern = array_merge(
           ...array_map(
-            fn($customTemplateApiPath) => [
+            fn ($customTemplateApiPath) => [
               $customTemplateApiPath["url"] => $customTemplateApiPath["api"],
             ],
             $customTemplateApiPaths

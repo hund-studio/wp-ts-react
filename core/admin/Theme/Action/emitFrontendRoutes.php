@@ -27,14 +27,14 @@ add_action("init", function () use ($appConfig) {
     [
       "frontpage" => array_merge(
         ...array_map(
-          fn($apiPath) => [
+          fn ($apiPath) => [
             $apiPath["url"] => $apiPath["api"],
           ],
           array_map(
-            fn($lang) => [
+            fn ($lang) => [
               "url" => Helpers::makeFullUrl($lang, "/"),
               "api" => Helpers::makeFullUrl(
-                $lang,
+                $lang !== Config::get('fallbackLang') ? $lang : '',
                 Config::get("baseUrl"),
                 Config::get("restNamespace"),
                 "frontpage"

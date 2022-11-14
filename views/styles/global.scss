@@ -1,12 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
 html,
 body {
 	background-color: #1f1f1f;
 	color: #f1f1f1;
 	margin: 0;
+	font-family: "Open Sans", sans-serif;
 }
 
 a {
+	all: unset;
 	color: inherit;
+	cursor: pointer;
+	opacity: 0.5;
 }
 
 mark {
@@ -20,4 +26,9 @@ mark {
 button.active {
 	background-color: #3f89ff;
 	color: #f1f1f1;
+}
+
+ul {
+	padding-inline-start: 1.75em;
+	list-style-type: " ⚫ ";
 }
