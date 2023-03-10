@@ -1,45 +1,44 @@
 {
-	"compilerOptions": {
-		// transpilation settings
-		"jsx": "react-jsx",
-		"lib": ["ESNext", "DOM"],
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"target": "ESNext",
+  "compilerOptions": {
+    // transpilation settings
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ESNext",
 
-		// dev tools
-		"sourceMap": true,
+    // dev tools
+    "sourceMap": true,
 
-		// features configuration
-		"esModuleInterop": true,
-		"noImplicitAny": true,
-		"resolveJsonModule": true,
-		"strict": true,
+    // features configuration
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "strict": true,
 
-		// filesystem
-		"outDir": "./public/",
-		"baseUrl": "./",
-		"paths": {
-			// configuration
-			"@config/*": ["./config/*"],
-			"@translations/*": ["./translations/*"],
-			// Core
-			"@core/hooks": ["./core/front/hooks/data"],
-			"@core/Link": ["./core/front/components/Link"],
-			"@core/page": ["./core/front/page"],
-			// Translation plugin
-			"@core/lang/T": ["./core/front/components/lang/T"],
-			// Laygrid plugin
-			"@core/lay/Grid": ["core/front/components/lay/Grid"],
-			"@core/lay/Text": ["./core/front/components/lay/Text"],
-			// Frontend
-			"@views/*": ["./views/*"]
-		}
-	},
-	// enable top level await on webpack
-	"ts-node": {
-		"compilerOptions": {
-			"module": "CommonJS"
-		}
-	}
+    // filesystem
+    "outDir": "./public/",
+    "baseUrl": "./",
+    "paths": {
+      // configuration
+      "@config/*": ["./config/*"],
+      // Core
+      "@core/hooks": ["./core/front/hooks/data"],
+      "@core/Link": ["./core/front/components/Link"],
+      "@core/page": ["./core/front/page"],
+      // Translation plugin
+      "@core/lang/T": ["./core/front/components/lang/T"],
+      // Laygrid plugin
+      "@core/lay/Grid": ["core/front/components/lay/Grid"],
+      "@core/lay/Text": ["./core/front/components/lay/Text"],
+      // Frontend
+      "@views/*": ["./views/*"]
+    }
+  },
+  // enable top level await on webpack
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }

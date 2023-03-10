@@ -195,51 +195,55 @@ const config = async (
           path.join(__dirname, `core/admin/**/*`),
         ],
       }),
-      new FileManagerPlugin({
-        runOnceInWatchMode: false,
-        runTasksInSeries: true,
-        events: {
-          onStart: [
-            {
-              delete: [
-                path.resolve(dir.theme, "core"),
-                path.resolve(dir.theme, "config"),
-              ],
-            },
-          ],
-          onEnd: [
-            {
-              copy: [
-                {
-                  source: path.resolve(__dirname, "theme"),
-                  destination: dir.theme,
-                },
-                {
-                  source: path.resolve(__dirname, "public"),
-                  destination: path.resolve(dir.theme, "public"),
-                },
-                {
-                  source: path.resolve(__dirname, "config"),
-                  destination: path.resolve(dir.theme, "config"),
-                },
-                {
-                  source: path.resolve(__dirname, "core/admin"),
-                  destination: path.resolve(dir.theme, "core"),
-                },
-              ],
-            },
-            {
-              archive: [
-                {
-                  source: dir.theme,
-                  destination: path.join(dir.output, `${packageJSON.name}.zip`),
-                },
-              ],
-            },
-          ],
-        },
-      }),
-    ],
+      action !== "serve" &&
+        new FileManagerPlugin({
+          runOnceInWatchMode: false,
+          runTasksInSeries: true,
+          events: {
+            onStart: [
+              {
+                delete: [
+                  path.resolve(dir.theme, "core"),
+                  path.resolve(dir.theme, "config"),
+                ],
+              },
+            ],
+            onEnd: [
+              {
+                copy: [
+                  {
+                    source: path.resolve(__dirname, "theme"),
+                    destination: dir.theme,
+                  },
+                  {
+                    source: path.resolve(__dirname, "public"),
+                    destination: path.resolve(dir.theme, "public"),
+                  },
+                  {
+                    source: path.resolve(__dirname, "config"),
+                    destination: path.resolve(dir.theme, "config"),
+                  },
+                  {
+                    source: path.resolve(__dirname, "core/admin"),
+                    destination: path.resolve(dir.theme, "core"),
+                  },
+                ],
+              },
+              {
+                archive: [
+                  {
+                    source: dir.theme,
+                    destination: path.join(
+                      dir.output,
+                      `${packageJSON.name}.zip`
+                    ),
+                  },
+                ],
+              },
+            ],
+          },
+        }),
+    ].flatMap((i) => (!!i ? [i] : [])),
   };
 };
 

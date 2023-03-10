@@ -6,55 +6,55 @@ import { Provider as DataProvider } from "./context/data";
 import { SWRConfig } from "swr";
 import { useScrollTop } from "./hooks/layout/useScrollTop";
 import { createErrorString } from "./utils/createErrorString";
-import { I18nextProvider } from "react-i18next";
-import { i18n } from "./utils/i18n";
+import { I18nextProviderProps } from "react-i18next";
+import { ConditionalI18nextProvider, getI18nInstance } from "./utils/i18n";
 
 const defaultAppConfig = {
-	resetScroll: true,
+  resetScroll: true,
 };
 
 try {
-	const { default: _App } = await import("@views/pages/_app");
+  const { default: _App } = await import("@views/pages/_app");
 
-	_App.config = { ...defaultAppConfig, ..._App.config };
+  _App.config = { ...defaultAppConfig, ..._App.config };
 
-	const Wrapper: FC<PropsWithChildren> = ({ children }) => {
-		if (_App.config?.resetScroll) useScrollTop();
-		return <Fragment>{children}</Fragment>;
-	};
+  const Wrapper: FC<PropsWithChildren> = ({ children }) => {
+    if (_App.config?.resetScroll) useScrollTop();
+    return <Fragment>{children}</Fragment>;
+  };
 
-	const App: FC = () => {
-		const [translations, setTranslations] = useState(i18n);
+  const App: FC = () => {
+    const [i18n, setI18n] = useState<I18nextProviderProps["i18n"]>();
 
-		useEffect(() => {
-			// console.log(translations);
-		}, [translations]); // todo should update on new languages fetch
+    useEffect(() => {
+      getI18nInstance().then((data) => setI18n(data));
+    }, []);
 
-		return (
-			<I18nextProvider i18n={translations}>
-				<SWRConfig>
-					<DataProvider>
-						<BrowserRouter>
-							<Wrapper>
-								<ModeFlag />
-								<_App />
-							</Wrapper>
-						</BrowserRouter>
-					</DataProvider>
-				</SWRConfig>
-			</I18nextProvider>
-		);
-	};
+    return (
+      <ConditionalI18nextProvider i18n={i18n}>
+        <SWRConfig>
+          <DataProvider>
+            <BrowserRouter>
+              <Wrapper>
+                <ModeFlag />
+                <_App />
+              </Wrapper>
+            </BrowserRouter>
+          </DataProvider>
+        </SWRConfig>
+      </ConditionalI18nextProvider>
+    );
+  };
 
-	const container = document.getElementById("root");
-	const root = createRoot(container!);
+  const container = document.getElementById("root");
+  const root = createRoot(container!);
 
-	root.render(<App />);
+  root.render(<App />);
 } catch (e) {
-	console.log(
-		createErrorString({
-			path: "💢: something went wrong in 'core > front > index.tsx'",
-			message: "😢: failed to import _app.tsx file",
-		})
-	);
+  console.log(
+    createErrorString({
+      path: "💢: something went wrong in 'core > front > index.tsx'",
+      message: "😢: failed to import _app.tsx file",
+    })
+  );
 }

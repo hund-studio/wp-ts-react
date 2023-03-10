@@ -1,11 +1,23 @@
+import _ from "lodash";
+
 const getServerData = (elementId: string) => {
-	const dataElement = document.getElementById(elementId);
+  try {
+    const dataElement = document.getElementById(elementId);
 
-	const serverData = dataElement?.textContent
-		? JSON.parse(dataElement.textContent)
-		: {};
+    if (!dataElement?.textContent) {
+      throw `#${elementId} not found`;
+    }
 
-	return serverData;
+    return JSON.parse(dataElement.textContent);
+  } catch (e) {
+    if (_.isString(e)) {
+      console.warn(e);
+    } else {
+      console.error(e);
+    }
+
+    return undefined;
+  }
 };
 
 export { getServerData };
