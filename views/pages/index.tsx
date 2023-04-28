@@ -4,7 +4,7 @@ import { MenuOnBottom } from "@views/layouts/MenuOnBottom/menuOnBottom";
 import { useTranslation } from "react-i18next";
 
 const Index: Page = ({ data }: any) => {
-	const { t } = useTranslation();
+	const { i18n, t } = useTranslation();
 
 	return (
 		<main>
@@ -14,6 +14,11 @@ const Index: Page = ({ data }: any) => {
 			<p>
 				This is a text with a <Link to='https://hund.studio'>link</Link>
 			</p>
+			<code>
+				Wordpress site language: {i18n.languages.join(", ")}
+				<br />
+				Fallback languages: {i18n.options.fallbackLng?.toString()}
+			</code>
 			<input type={"text"} value={data?.acf?.body} disabled />
 		</main>
 	);

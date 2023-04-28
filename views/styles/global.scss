@@ -8,6 +8,10 @@ body {
 	font-family: "Open Sans", sans-serif;
 }
 
+main {
+	margin: 10px;
+}
+
 a {
 	all: unset;
 	color: inherit;
@@ -31,4 +35,11 @@ button.active {
 ul {
 	padding-inline-start: 1.75em;
 	list-style-type: " ⚫ ";
+}
+
+main code {
+	display: block;
+	padding: 0.5em;
+	margin: 1em 0;
+	border: 1px solid lighten($color: #000000, $amount: 0);
 }
