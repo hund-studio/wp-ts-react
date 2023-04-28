@@ -1,10 +1,11 @@
-interface ErrorContent {
+interface Message {
+	icon: string;
 	path: string;
 	message: string;
 }
 
-const createErrorString = (errorContent: ErrorContent) => {
+const createDebugString = (errorContent: Message) => {
 	return Object.values(errorContent).join("\n");
 };
 
-export { createErrorString };
+export { createDebugString };

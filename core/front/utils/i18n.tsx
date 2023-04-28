@@ -1,112 +1,121 @@
-import i18next, { InitOptions } from "i18next";
-import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-import { getServerData } from "./getServerData";
-import appConfig from "@config/app.json";
 import _ from "lodash";
-import { FC, Fragment, PropsWithChildren } from "react";
-import { I18nextProvider, I18nextProviderProps } from "react-i18next";
+import { getServerData } from "./getServerData";
+import { handleError } from "./handleError";
+import { initReactI18next } from "react-i18next";
+import appConfig from "@config/app.json";
+import createHttpError from "http-errors";
+import i18next from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import type { InitOptions } from "i18next";
 
-type PartiallyOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
-
+/* The `LangSettings` interface defines the structure of an object that contains language settings. It
+specifies that the object must have three properties: `apiUrl`, which is a string representing the
+URL of the API used to retrieve translations; `langs`, which is an array of strings representing the
+supported languages; and `fallbackLang`, which is a string representing the fallback language to use
+if a translation is not available in the requested language. This interface is used to validate that
+the `langSettings` object passed to the `assertsLangSettings` function has the correct structure. */
 interface LangSettings {
-  apiUrl: string;
-  langs: string[];
-  fallbackLang: string;
+	apiUrl: string;
+	langs: string[];
+	fallbackLang: string;
 }
 
+/**
+ * The function asserts that a given object has valid language settings and throws an error if any of
+ * the settings are invalid.
+ * @param {any} langSettings - an object containing language settings, including apiUrl (string), langs
+ * (array of strings), and fallbackLang (string).
+ */
 function assertsLangSettings(
-  langSettings: any
+	langSettings: any
 ): asserts langSettings is LangSettings {
-  if (_.isUndefined(langSettings)) {
-    throw `langSettings is undefined`;
-  }
+	if (_.isUndefined(langSettings)) {
+		throw createHttpError(400, `'langSettings' is undefined`);
+	}
 
-  const { apiUrl, langs, fallbackLang } = langSettings;
+	const { apiUrl, langs, fallbackLang } = langSettings;
 
-  if (!_.isString(apiUrl)) {
-    throw `apiUrl must be string`;
-  }
+	if (!_.isString(apiUrl)) {
+		throw createHttpError(400, `'apiUrl' must be string`);
+	}
 
-  if (!_.isArray(langs) || !_.every(langs, _.isString)) {
-    throw `langs must be string[]`;
-  }
+	if (!_.isArray(langs) || !_.every(langs, _.isString)) {
+		throw createHttpError(400, `'langs' must be string[]`);
+	}
 
-  if (!_.isString(fallbackLang)) {
-    throw `fallbackLang must be string`;
-  }
+	if (!_.isString(fallbackLang)) {
+		throw createHttpError(400, `fallbackLang must be string`);
+	}
 }
 
+/**
+ * This function creates an instance of i18next and initializes it with translations and language
+ * settings obtained from the server.
+ * @returns The `getI18nInstance` function returns an instance of the `i18next` library that has been
+ * initialized with configuration options and loaded with translations for the supported languages. The
+ * function uses async/await and Promise.all to load translations for each supported language from the
+ * `translations` directory. If an error occurs during the loading of a translation file, a warning is
+ * logged to the console and the
+ */
 const getI18nInstance = async () => {
-  try {
-    const serverLangSettings = getServerData(appConfig.settings.element.id);
+	const serverLangSettings = getServerData(appConfig.settings.element.id);
+	const i18n = i18next.createInstance();
 
-    assertsLangSettings(serverLangSettings);
+	i18n.use(LanguageDetector).use(initReactI18next);
 
-    const i18n = i18next.createInstance();
+	const DEFAULT_OPTIONS: InitOptions = {
+		detection: {
+			order: ["path"],
+		},
+		debug: TARGET !== "production",
+		supportedLngs: appConfig.languages,
+		fallbackLng: appConfig.languages,
+	};
 
-    const translations = (
-      await Promise.all(
-        serverLangSettings.langs.map(
-          async (
-            lang: string
-          ): Promise<[string, { translation: any }] | undefined> => {
-            try {
-              const { default: translation } = await import(
-                `../../../translations/${lang}`
-              );
+	try {
+		assertsLangSettings(serverLangSettings);
 
-              return [lang, { translation }];
-            } catch (e) {
-              console.warn(e);
-            }
-          }
-        )
-      )
-    )
-      .flatMap((i) => (!!i ? [i] : []))
-      .reduce(
-        (obj: { [key: string]: { translation: any } }, item) =>
-          (obj[item[0]] = item[1]),
-        {}
-      );
+		const translations = (
+			await Promise.all(
+				serverLangSettings.langs.map(
+					async (
+						lang: string
+					): Promise<[string, { translation: any }] | undefined> => {
+						try {
+							const { default: translation } = await import(
+								`../../../translations/${lang}`
+							);
 
-    const config: InitOptions = {
-      detection: {
-        order: ["path"],
-      },
-      supportedLngs: serverLangSettings.langs,
-      fallbackLng: serverLangSettings.fallbackLang,
-      debug: true,
-      resources: {
-        ...translations,
-      },
-    };
+							return [lang, { translation }];
+						} catch (e) {
+							handleError(e, `'core/front/utils/i18n.tsx'`, "warn");
+						}
+					}
+				)
+			)
+		)
+			.flatMap((i) => (!!i ? [i] : []))
+			.reduce(
+				(obj: { [key: string]: { translation: any } }, item) =>
+					(obj[item[0]] = item[1]),
+				{}
+			);
 
-    return i18n
-      .use(LanguageDetector)
-      .use(initReactI18next)
-      .init({
-        ...config,
-      });
-  } catch (e) {
-    console.warn(e);
-    return;
-  }
+		i18n.init({
+			...DEFAULT_OPTIONS,
+			supportedLngs: serverLangSettings.langs,
+			fallbackLng: serverLangSettings.fallbackLang,
+			resources: {
+				...translations,
+			},
+		});
+	} catch (e: unknown) {
+		handleError(e, `'core/front/utils/i18n.tsx'`, "warn");
+
+		i18n.init({ ...DEFAULT_OPTIONS });
+	} finally {
+		return i18n;
+	}
 };
 
-const ConditionalI18nextProvider: FC<
-  PropsWithChildren<PartiallyOptional<I18nextProviderProps, "i18n">>
-> = ({ children, i18n, ...rest }) => {
-  if (!i18n) {
-    return <Fragment>{children}</Fragment>;
-  }
-
-  return (
-    <I18nextProvider i18n={i18n} {...rest}>
-      {children}
-    </I18nextProvider>
-  );
-};
-
-export { getI18nInstance, ConditionalI18nextProvider };
+export { getI18nInstance };

@@ -1,5 +1,5 @@
 {
 	"local": "http://wpreact.test",
-	"staging": "http://wpreact.test",
-	"production": "http://wpreact.test"
+	"staging": "https://wpreact.hund.studio",
+	"production": "https://wpreact.hund.studio"
 }
