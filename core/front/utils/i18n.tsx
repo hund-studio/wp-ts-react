@@ -61,14 +61,17 @@ function assertsLangSettings(
  * logged to the console and the
  */
 const getI18nInstance = async () => {
-	const serverSettings = getServerData(appConfig.settings.element.id);
-	const { data: fetchedSettings } = await axios.get(
-		`${TARGET_HOST}/${API_NAMESPACE}/settings`
-	);
+	let serverSettings = getServerData(appConfig.settings.element.id);
 
-	const serverLangSettings = serverSettings || fetchedSettings;
+	if (!serverSettings) {
+		const { data: fetchedSettings } = await axios.get(
+			`${TARGET_HOST}/${API_NAMESPACE}/settings`
+		);
 
-	console.log(serverLangSettings);
+		serverSettings = fetchedSettings;
+	}
+
+	const serverLangSettings = serverSettings;
 
 	const i18n = i18next.createInstance();
 
