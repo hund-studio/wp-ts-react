@@ -8,16 +8,22 @@ const Index: Page = ({ data }: any) => {
 
 	return (
 		<main>
-			<h1>
-				<T tkey={"frontpage"}>Homepage</T>
-			</h1>
+			<h1>{data["post_title"]}</h1>
+			<h2>
+				<T tkey={"hello"}>Hello</T>
+			</h2>
 			<p>
-				This is a text with a <Link to='https://hund.studio'>link</Link>
+				Welcome to WPreact, a product by{" "}
+				<Link to='https://hund.studio' target='_blank'>
+					hund.studio
+				</Link>
 			</p>
 			<code>
-				Wordpress site language: {i18n.languages.join(", ")}
+				Available language: {i18n.languages.join(", ")}
 				<br />
-				Fallback languages: {i18n.options.fallbackLng?.toString()}
+				Fallback language: {i18n.options.fallbackLng?.toString()}
+				<br />
+				Current language: {i18n.language}
 			</code>
 			<input type={"text"} value={data?.acf?.body} disabled />
 		</main>

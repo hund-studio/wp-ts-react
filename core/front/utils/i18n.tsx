@@ -7,6 +7,9 @@ import createHttpError from "http-errors";
 import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import type { InitOptions } from "i18next";
+import useSWR from "swr";
+import { fetcher } from "./fetcher";
+import axios from "axios";
 
 /* The `LangSettings` interface defines the structure of an object that contains language settings. It
 specifies that the object must have three properties: `apiUrl`, which is a string representing the
@@ -58,7 +61,15 @@ function assertsLangSettings(
  * logged to the console and the
  */
 const getI18nInstance = async () => {
-	const serverLangSettings = getServerData(appConfig.settings.element.id);
+	const serverSettings = getServerData(appConfig.settings.element.id);
+	const { data: fetchedSettings } = await axios.get(
+		`${TARGET_HOST}/${API_NAMESPACE}/settings`
+	);
+
+	const serverLangSettings = serverSettings || fetchedSettings;
+
+	console.log(serverLangSettings);
+
 	const i18n = i18next.createInstance();
 
 	i18n.use(LanguageDetector).use(initReactI18next);
@@ -68,11 +79,12 @@ const getI18nInstance = async () => {
 			order: ["path"],
 		},
 		debug: TARGET !== "production",
-		supportedLngs: appConfig.languages,
-		fallbackLng: appConfig.languages,
+		supportedLngs: [appConfig.language],
+		fallbackLng: appConfig.language,
 	};
 
 	try {
+		console.log("ghiaccio");
 		assertsLangSettings(serverLangSettings);
 
 		const translations = (
@@ -110,6 +122,7 @@ const getI18nInstance = async () => {
 			},
 		});
 	} catch (e: unknown) {
+		console.log("ciccio");
 		handleError(e, `'core/front/utils/i18n.tsx'`, "warn");
 
 		i18n.init({ ...DEFAULT_OPTIONS });

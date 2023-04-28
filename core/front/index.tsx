@@ -8,9 +8,12 @@ import { handleError } from "./utils/handleError";
 import { I18nextProvider } from "react-i18next";
 import { ModeFlag } from "./components/ModeFlag/modeFlag";
 import { Provider as DataProvider } from "./context/data";
-import { SWRConfig } from "swr";
+import useSWR, { SWRConfig } from "swr";
 import { useScrollTop } from "./hooks/layout/useScrollTop";
 import createHttpError from "http-errors";
+import { fetcher } from "./utils/fetcher";
+import { getServerData } from "./utils/getServerData";
+import appConfig from "@config/app.json";
 
 try {
 	/* `const { default: _App } = await import("@views/pages/_app");` is importing the default export from
@@ -82,8 +85,8 @@ try {
 	const App: FC = () => {
 		return (
 			<Suspense fallback={<p>Waiting for connection data</p>}>
-				<AppLanguage>
-					<SWRConfig>
+				<SWRConfig>
+					<AppLanguage>
 						<DataProvider>
 							<BrowserRouter>
 								<AppConfig>
@@ -92,8 +95,8 @@ try {
 								</AppConfig>
 							</BrowserRouter>
 						</DataProvider>
-					</SWRConfig>
-				</AppLanguage>
+					</AppLanguage>
+				</SWRConfig>
 			</Suspense>
 		);
 	};

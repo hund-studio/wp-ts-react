@@ -64,8 +64,8 @@ final class Config extends SingletonWithOptions
       "uri" => $uri,
       "baseUrl" => Helpers::trimSlashes($apiConfig["base"]),
       "namespace" => Helpers::trimSlashes($apiConfig["wpreact"]["namespace"]),
-      "langs" => [get_bloginfo('language')],
-      "fallbackLang" => [get_bloginfo('language')]
+      "langs" => [get_bloginfo('language') ?: $appConfig['language']],
+      "fallbackLang" => get_bloginfo('language') ?: $appConfig['language']
     ];
 
     $themeArgs["restNamespace"] = Helpers::trimSlashes(
