@@ -71,7 +71,7 @@ const getI18nInstance = async () => {
 		serverSettings = fetchedSettings;
 	}
 
-	const serverLangSettings = serverSettings;
+	const serverLangSettings = serverSettings; // todo: maybe context
 
 	const i18n = i18next.createInstance();
 
