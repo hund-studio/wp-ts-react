@@ -220,6 +220,10 @@ const config = async (
 										destination: path.resolve(dir.theme, "public"),
 									},
 									{
+										source: path.resolve(__dirname, "translations"),
+										destination: path.resolve(dir.theme, "translations"),
+									},
+									{
 										source: path.resolve(__dirname, "config"),
 										destination: path.resolve(dir.theme, "config"),
 									},
